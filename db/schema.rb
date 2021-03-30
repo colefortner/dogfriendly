@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2021_03_30_143922) do
   create_table "businesses", force: :cascade do |t|
     t.string "name"
     t.string "address"
-    t.string "type"
+    t.string "business_type"
   end
 
   create_table "ratings", force: :cascade do |t|
