@@ -1,0 +1,35 @@
+<h1>Businesses Browsing Page</h1>
+<div class="business-card-container">
+<% @businesses.each do |business | %>
+    <div class="business_card">
+        <div class="bc_name"><%= business.name %></div>
+        <img src="https://media-cdn.tripadvisor.com/media/photo-s/14/61/d7/ab/paw-brewery-tap-room.jpg"/>
+        <div class="bc_address"><%= business.address %></div>
+        <div class="bc_type"><%= business.business_type %></div>
+
+        <% if average(business, @ratings) > 0 %>
+            <div><%= average(business, @ratings)%> </div>
+        <% else %>
+            <div>Be the first to rate this business</div>
+        <% end %>
+
+
+        <div class="paws">
+            <% average(business, @ratings).times do |i| %>
+            <img class="paw" src="<%= asset_path('yellow-paw-print-md.png') %>"/>
+            <% end %>
+        </div>
+    </div>
+    </br>
+<% end %>
+</div>
+<h2>Problem Log</h2>
+<p>Get the paws to correspond to ratings (loop rating number of time)</p>
+<p>Need to split up address for more uniform look</p>
+<p>Add image to card</p>
+<p>Get cards to flow horizontally</p>
+<p>Page not responsive</p>
+<p>Add sort by</p>
+<p>Add phone number to business</p>
+<p>Picture Carousel, is there a google photos api?</p>
+

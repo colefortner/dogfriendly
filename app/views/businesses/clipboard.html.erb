@@ -1,0 +1,22 @@
+        <%# business.ratings.each do |rating|%>
+            <%# <div><%# rating.rating %></div> %>
+        <%# end %>
+        <%# if business.ratings[0] %>
+            <%# <div class="bc_rating">Rating: <%#= business.ratings[0].rating#</div> %> %>
+        <%# else %>
+            <%# <div class="bc_rating">Be the first to rate!</div> %>
+        <%# end %>
+        <%# if business.business_comments[0] %>
+            <%# <div>Comment: "= business.business_comments[0].body"</div> %>
+        <%# else%>
+            <%# <div>No User Commnets Yet</div> %>
+        <%# end %>
+
+
+                <% if average(business, @ratings) == 5 %>
+            <div>Be the first to rate this business</div>
+        <% end %>
+            <% if @ratings.length == 0 %>
+                <div>Be the first to rate this business</div>
+        <% end %>
+        <%= average(business, @ratings) %>
