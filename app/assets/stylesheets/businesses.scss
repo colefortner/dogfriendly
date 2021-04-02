@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .business_card {
     border: 1px solid black;
+    // shrinks the div to the card size which in most cases here will be the image widht
     display: inline-block;
     border-radius: 5px;
     padding: 10px;
@@ -11,8 +12,9 @@
     // float: left;
 }
 
-img {
+.bc_img {
     width: 300px;
+    height: 350px;
     border-radius: 5px;
 }
 

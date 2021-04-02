@@ -20,7 +20,13 @@ ActiveRecord::Schema.define(version: 2021_03_30_143922) do
 
   create_table "businesses", force: :cascade do |t|
     t.string "name"
-    t.string "address"
+    t.string "img_url"
+    t.string "phone_number"
+    t.integer "address_number"
+    t.string "street_name"
+    t.string "city"
+    t.string "state_abbrev"
+    t.string "zip_code"
     t.string "business_type"
   end
 
@@ -31,7 +37,9 @@ ActiveRecord::Schema.define(version: 2021_03_30_143922) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "firstname"
+    t.string "username"
+    t.string "password_digest"
   end
 
 end

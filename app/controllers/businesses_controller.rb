@@ -15,7 +15,11 @@ class BusinessesController < ApplicationController
         business.ratings.each do |rating|
             average = average + rating.rating
         end
-        average/business.ratings.length
+        if business.ratings.length == 0
+            return 0
+        else
+            average/business.ratings.length
+        end
         # puts ratings.length
         # puts average / ratings.length
     end
