@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   post 'login', to: 'sessions#create'
 
+  delete 'login', to: 'sessions#destroy'
 
+  # resources :sessions
 
   resources :users
   

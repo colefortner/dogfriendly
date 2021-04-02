@@ -20,3 +20,20 @@
                 <div>Be the first to rate this business</div>
         <% end %>
         <%= average(business, @ratings) %>
+
+        <%= button_to "Logout" destroy_session_path, method: :destroy %>
+Why does this not work? Ahhhhhh not in resources
+<div><%= link_to "Login2", new_session_path %></div>
+<div><%= button_to "login", "/login", method: :get  %></div>
+<div><%= button_to "logout", "/login", method: :destroy %></div>
+<div><%= button_to "lougout2", "/login", method: :destroy %></div>
+
+
+
+
+
+        <% if average(business, @ratings) > 0 %>
+            <div><%= average(business, @ratings)%> </div>
+        <% else %>
+            <div>Be the first to rate this business</div>
+        <% end %>

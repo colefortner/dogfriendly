@@ -1,29 +1,40 @@
-<h1>Businesses Browsing Page</h1> <div><%= link_to "register/login", new_user_path %></div>
-<% if logged_in? %>
-    <h1>Hi <%=current_user.firstname %>!</h1>
-<% end %>
+
+<h1>Businesses Browsing Page</h1> 
+
+<div class="greeting">
+    <% if logged_in? %>
+        <div class="greet">Hi <%= current_user.firstname %>!</div>
+        <div><%= button_to "logout", "/login", method: :delete, class: "page-top-buttons" %></div>
+    <% else %>
+        <div><%= button_to "register", "/users/new", method: :get, class: "page-top-buttons" %></div>
+        <div><%= button_to "login", "/login", method: :get, class: "page-top-buttons"  %></div>
+    <% end %>
+</div>
+
 <div class="business-card-container">
 <% @businesses.each do |business | %>
     <div class="business_card">
         <div class="bc_name"><%= business.name %></div>
         <img class="bc_img" src="<%= business.img_url %>"/>
-        <div class="bc_address"><%= business.phone_number %></div>
+        <div class="bc_phone"><%= business.phone_number %></div>
         <div class="bc_address"><%= business.address_number %> <%= business.street_name %></div>
         <div class="bc_address"><%= business.city %>, <%= business.state_abbrev %> <%= business.zip_code %></div>
         <div class="bc_type"><%= business.business_type %></div>
 
-        <% if average(business, @ratings) > 0 %>
-            <div><%= average(business, @ratings)%> </div>
+        <%= link_to business.name, business %>
+
+        <p class="rating">Rating:</p> 
+
+        <% if average(business, @ratings) > 0 %>               
+            <div class="paws">
+                <% average(business, @ratings).times do |i| %>
+                    <img class="paw" src="<%= asset_path('yellow-paw-print-md.png') %>"/>
+                <% end %>
+            </div>
         <% else %>
-            <div>Be the first to rate this business</div>
+            <div class="no-rating-yet">Be the first to rate this business</div>
         <% end %>
 
-
-        <div class="paws">
-            <% average(business, @ratings).times do |i| %>
-            <img class="paw" src="<%= asset_path('yellow-paw-print-md.png') %>"/>
-            <% end %>
-        </div>
     </div>
     </br>
 <% end %>
@@ -32,14 +43,15 @@
 <h2>Todo/problem log</h2>
 
 <h3>priority</h3>
-<p>create login form</p>
-<p>create a way to logout</p>
+
+<p>let users save businesses to their account</p>
+<p>business show pages</p>
 
 <h3>the rest</h3>
 <p>let businesses add events</p>
 <p>create business owner account so they can create and update their page</p>
 <p>Page not responsive (halfway done)</p>
-<p>Add sort by</p>
+<p>Add sort by feature</p>
 <p>Picture Carousel, is there a google photos api?</p>
 <p>make sure it runs</p>
 <p>push to heroku?</p>
@@ -47,6 +59,7 @@
 <p>trail paths</p>
 <p>directions and mapping</p>
 <p>try to implement react once you are happy you have enough of the features you wanted</p>
+<p>fix the ridiculously large margins that occur on the outside of the card container when narrowing the page</p>
 
 <h3>Done</h3>
 <p style="text-decoration: line-through">Add image to card</p>
@@ -57,5 +70,8 @@
 <p style="text-decoration: line-through">learn to seed the database so you don't have to reseed manually</p>
 <p style="text-decoration: line-through">Need to split up address for more uniform look and for later map implementation, look to see what format their api uses</p>
 <p style="text-decoration: line-through">Add phone number to business</p>
+<p style="text-decoration: line-through">create login form</p>
+<p style="text-decoration: line-through">create a way to logout</p>
+<p style="text-decoration: line-through">wire up show pages</p>
 
 

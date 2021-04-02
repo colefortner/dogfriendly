@@ -10,6 +10,11 @@ class BusinessesController < ApplicationController
         puts @ratings.length
     end
 
+    def show
+        @business = Business.where(id: params[:id]).first
+        @business_commnets = @business.business_comments
+    end
+
     def average(business, ratings)
         average = 0
         business.ratings.each do |rating|
