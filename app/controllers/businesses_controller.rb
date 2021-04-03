@@ -14,6 +14,7 @@ class BusinessesController < ApplicationController
     def show
         @business = Business.where(id: params[:id]).first
         @business_comments = @business.business_comments
+        @ratings = Rating.all
     end
 
     def average(business, ratings)

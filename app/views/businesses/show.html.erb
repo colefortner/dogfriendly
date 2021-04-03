@@ -33,7 +33,15 @@
 <h2>Reviews</h2>
 
         <% @business_comments.each do |comment | %>
-    <div class="comments"><%= comment.body %> - <%= comment.user.firstname %></div>
+    <div class="comments"><%= comment.body %> - 
+                            <%= comment.user.firstname %>
+                            <% if @ratings.where(business_id: @business.id, user_id: comment.user.id).first %>
+                            <% @ratings.where(business_id: @business.id, user_id: comment.user.id).first.rating.times do |i| %>
+                                <img class="comment-paws" src="<%= asset_path('yellow-paw-print-md.png') %>"/>
+                            <% end %>
+                            <% end %>
+                            
+    </div>
 <% end %>
 <br>
 <div>

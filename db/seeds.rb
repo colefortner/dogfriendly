@@ -84,10 +84,22 @@ Business.create(name: "The Ale and the Witch",
 
 user = User.first
 user.business_comments.create(body: "Cozy bar with good beer and dogs, what more can you ask for?", business_id: 1)
+user.business_comments.create(body: "Great selection of beer and logs of room for the dogs to play!", business_id: 3)
+user.business_comments.create(body: "Best place to watch sports with your dog, most tvs in St. Pete?", business_id: 4)
+user.business_comments.create(body: "Weird ass place", business_id: 5)
+user.business_comments.create(body: "Love this place, great selection, lots of outdoor space and live music", business_id: 7)
+
+
 user.ratings.create(rating: 5, business_id: 1)
 user.ratings.create(rating: 2, business_id: 2)
 user.ratings.create(rating: 3, business_id: 4)
 
 user2 = User.where(id: 2).first
+user2.business_comments.create(body: "Nice low key bar with great beer. ", business_id: 1)
+user2.business_comments.create(body: "One of the best places in St. Pete to have a beer with dog friends", business_id: 2)
+user2.business_comments.create(body: "Great place to grab lunch with your pooch, great burritos", business_id: 6)
+user2.business_comments.create(body: "I agree, it's a weird ass place.  What is up with the swings", business_id: 5)
+user2.business_comments.create(body: "Go on a live music night!", business_id: 7)
+
 user2.ratings.create(rating: 4, business_id: 2)
 user2.ratings.create(rating: 1, business_id: 4)
