@@ -2,6 +2,7 @@ class BusinessesController < ApplicationController
     def index
         @businesses = Business.all
         @ratings = Rating.all
+        # @comments = BusinessComment.all
         @average = 0
         @ratings.each do |rating|
             @average = @average + rating.rating
@@ -12,7 +13,7 @@ class BusinessesController < ApplicationController
 
     def show
         @business = Business.where(id: params[:id]).first
-        @business_commnets = @business.business_comments
+        @business_comments = @business.business_comments
     end
 
     def average(business, ratings)

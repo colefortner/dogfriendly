@@ -94,3 +94,46 @@
     margin-top: 14px;
     font-size: 18px;
 }
+
+.show-img {
+    width: 800px;
+}
+
+.show {
+    font-size: 30px;
+}
+
+.show-paws {
+    // margin-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.show-paw {
+    width: 30px;
+    margin-left: 3px;
+}
+
+.show-rating {
+    // margin-top: 4px;
+    margin-right: 8px;
+    font-size: 30px;
+    font-weight: bold;
+    float: left;
+}
+
+.show-business-info {
+    display:flex;
+
+}
+
+.stuff {
+    margin-left: 50px;
+}
+
+.comments {
+    font-size: 30px;
+}
+
+.show-home-link {
+    font-size: 40px;
+}

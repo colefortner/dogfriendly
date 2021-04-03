@@ -11,7 +11,10 @@
         <%# else%>
             <%# <div>No User Commnets Yet</div> %>
         <%# end %>
-
+        <% @business_comments.each do |comment | %>
+    <div><%= comment.body %></div>
+<% end %>
+<div>Comment: "<%= @business.business_comments[0].body %>"</div>
 
                 <% if average(business, @ratings) == 5 %>
             <div>Be the first to rate this business</div>

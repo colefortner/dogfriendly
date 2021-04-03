@@ -1,3 +1,51 @@
 <h1><%= @business.name %></h1>
+<div class="show-business-info">
+<img class="show-img" src="<%= @business.img_url %>" />
 
-<%= link_to "home", :businesses %>
+<div class="stuff">
+    <div class="show-rating-container">
+
+        <% if average(@business, @ratings) > 0 %>       
+            <div class="show-rating">Rating:</div> 
+
+            <div class="show-paws">
+
+                <% average(@business, @ratings).times do |i| %>
+                    <img class="show-paw" src="<%= asset_path('yellow-paw-print-md.png') %>"/>
+                <% end %>
+            </div>
+        <% else %>
+            <div class="no-rating-yet">Be the first to rate this business</div>
+        <% end %>
+        </br>
+    </div>
+    <div class="show">
+        <div>Add Website here and db</div>
+        <div class="show-phone"><%= @business.phone_number %></div>
+        <div class="show-address"><%= @business.address_number %> <%= @business.street_name %></div>
+        <div class="show-address"><%= @business.city %>, <%= @business.state_abbrev %> <%= @business.zip_code %></div>
+        <div class="bc_type"><%= @business.business_type %></div>
+    </div>
+</div>
+</div>
+</div>
+<br>
+<h2>Reviews</h2>
+
+        <% @business_comments.each do |comment | %>
+    <div class="comments"><%= comment.body %> - <%= comment.user.firstname %></div>
+<% end %>
+<br>
+<div>
+    <% if logged_in? %>
+        <h1>Hi <%= current_user.firstname %>: a comment and rating form will go here once I figure out how to do it</h1>
+        <h1>Log in check is working though, how freaking cool is that???</h1>
+    <% end %>
+</div>
+<br>
+<%= link_to "home", :businesses, class: "show-home-link" %>
+<br>
+<br>
+<br>
+<br>
+<br>
