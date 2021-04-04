@@ -10,6 +10,9 @@ class CreateBusinesses < ActiveRecord::Migration[6.1]
       t.string :state_abbrev
       t.string :zip_code
       t.string :business_type
+      t.string :address
+      t.float :latitude
+      t.float :longitude
     end
   end
 end

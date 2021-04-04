@@ -32,4 +32,9 @@ class BusinessesController < ApplicationController
     end
     helper_method :average
 
+  
+    # def google_map(center)
+    #     "https://maps.googleapis.com/maps/api/staticmap?center=#{center}&size=300x300&zoom=17size=640x400&key=AIzaSyAuDaaz9Df8EH6dulqrvhGzxSap3DErSOY"
+    # end
+    # helper_method :google_map
 end

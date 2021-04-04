@@ -18,7 +18,8 @@ Business.create(name: "Pinellas Ale Works",
                 city: "St. Petersburg", 
                 state_abbrev: "FL",
                 zip_code: 33712, 
-                business_type: "bar")
+                business_type: "bar",
+                address: "1962 1st Ave S, St. Petersburg, FL, 33712")
 # Business.create(name: "Pinellas Ale Works", )      
 
 # Business.create(name: “Pinellas Works”, img_url: "https://media-cdn.tripadvisor.com/media/photo-s/14/61/d7/ab/paw-brewery-tap-room.jpg", phone: "701-555-5555", address_number: 1962, street_name: "1st Ave S", city: "St. Petersburg", state_abbrev: "FL", zip_code: 33712, business_type: “bar”)
@@ -30,7 +31,8 @@ Business.create(name: "3 Daughters Brewing",
                 city: "St. Petersburg",
                 state_abbrev: "FL",
                 zip_code: 33712, 
-                business_type: "bar")
+                business_type: "bar",
+                address: "222 22nd St., St. Petersburg, FL, 33712")
 
 Business.create(name: "The Dog Bar",
                 img_url: "https://i2.wp.com/www.grandcentraldistrict.org/wp-content/uploads/2020/06/SP_419797_KEEL_1_ta_DOGBAR.jpg?fit=1024%2C695&ssl=1",
@@ -40,7 +42,8 @@ Business.create(name: "The Dog Bar",
                 city: "St. Petersburg",
                 state_abbrev: "FL",
                 zip_code: 33712,
-                business_type: "bar")
+                business_type: "bar",
+                address: "2300 Central Ave, St. Petersburg, FL, 33712")
 
 Business.create(name: "Ferg's Sports Bar and Grill",
                 img_url: "https://dupontregistrytampabay.com/wp-content/uploads/2018/09/IMG_2171-scaled-720x540.jpg",
@@ -50,7 +53,8 @@ Business.create(name: "Ferg's Sports Bar and Grill",
                 city: "St. Petersburg",
                 state_abbrev: "FL",
                 zip_code: 33705, 
-                business_type: "bar")
+                business_type: "bar",
+                address: "1320 Central Ave, St. Petersburg, FL, 33705")
 
 Business.create(name: "Swingers Patio Bar & Grill",
                 img_url: "https://scontent.fymy1-2.fna.fbcdn.net/v/t1.0-9/p720x720/140631930_202991728240529_6741177263121262581_o.jpg?_nc_cat=111&ccb=1-3&_nc_sid=110474&_nc_ohc=wrTV2aLSH5kAX-5o3ax&_nc_ht=scontent.fymy1-2.fna&tp=6&oh=a5126730070f7151cc1973696c5b5b61&oe=60867163",
@@ -60,7 +64,8 @@ Business.create(name: "Swingers Patio Bar & Grill",
                 city: "St. Petersburg", 
                 state_abbrev: "FL",
                 zip_code: 33713,
-                business_type: "bar")
+                business_type: "bar",
+                address: "2501 Central Ave, St. Petersburg, FL, 33713")
 
 Business.create(name: "Red Mesa Mercado",
                 img_url: "https://redmesamercado.com/wp-content/uploads/2020/03/mercado_home.jpg",
@@ -70,7 +75,8 @@ Business.create(name: "Red Mesa Mercado",
                 city: "St. Petersburg",
                 state_abbrev: "FL",
                 zip_code: 33705,
-                business_type: "restaurant")
+                business_type: "restaurant",
+                address: "1100 1st Ave N, St. Petersburg, FL, 33705")
 
 Business.create(name: "The Ale and the Witch",
                 img_url: "https://media-cdn.tripadvisor.com/media/photo-s/1b/28/c1/83/outside.jpg",
@@ -80,7 +86,8 @@ Business.create(name: "The Ale and the Witch",
                 city: "St. Petersburg",
                 state_abbrev: "FL",
                 zip_code: 33701,
-                business_type: "bar")
+                business_type: "bar",
+                address: "111 2nd Ave NE, St. Petersburg, FL, 33701")
 
 user = User.first
 user.business_comments.create(body: "Cozy bar with good beer and dogs, what more can you ask for?", business_id: 1)
@@ -102,4 +109,3 @@ user2.business_comments.create(body: "I agree, it's a weird ass place.  What is 
 user2.business_comments.create(body: "Go on a live music night!", business_id: 7)
 
 user2.ratings.create(rating: 4, business_id: 2)
-user2.ratings.create(rating: 1, business_id: 4)

@@ -1,3 +1,8 @@
+
+
+
+
+
 <h1><%= @business.name %></h1>
 <div class="show-business-info">
 <img class="show-img" src="<%= @business.img_url %>" />
@@ -21,26 +26,28 @@
     </div>
     <div class="show">
         <div>Add Website here and db</div>
+        <div>Add Hours</div>
         <div class="show-phone"><%= @business.phone_number %></div>
         <div class="show-address"><%= @business.address_number %> <%= @business.street_name %></div>
         <div class="show-address"><%= @business.city %>, <%= @business.state_abbrev %> <%= @business.zip_code %></div>
         <div class="bc_type"><%= @business.business_type %></div>
     </div>
+    <div><%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@business.latitude},#{@business.longitude}&markers=#{@business.latitude},#{@business.longitude}&zoom=17&size=400x400&key=AIzaSyAuDaaz9Df8EH6dulqrvhGzxSap3DErSOY",
+              class: 'img-fluid img-rounded', alt: "#{@business.name} on the map"%></div>
 </div>
 </div>
 </div>
 <br>
 <h2>Reviews</h2>
 
-        <% @business_comments.each do |comment | %>
+<% @business_comments.each do |comment | %>
     <div class="comments"><%= comment.body %> - 
-                            <%= comment.user.firstname %>
-                            <% if @ratings.where(business_id: @business.id, user_id: comment.user.id).first %>
-                            <% @ratings.where(business_id: @business.id, user_id: comment.user.id).first.rating.times do |i| %>
-                                <img class="comment-paws" src="<%= asset_path('yellow-paw-print-md.png') %>"/>
-                            <% end %>
-                            <% end %>
-                            
+        <%= comment.user.firstname %>
+        <% if @ratings.where(business_id: @business.id, user_id: comment.user.id).first %>
+            <% @ratings.where(business_id: @business.id, user_id: comment.user.id).first.rating.times do |i| %>
+                <img class="comment-paws" src="<%= asset_path('yellow-paw-print-md.png') %>"/>
+            <% end %>
+        <% end %>        
     </div>
 <% end %>
 <br>
@@ -57,3 +64,6 @@
 <br>
 <br>
 <br>
+
+<div id="map"></div>
+

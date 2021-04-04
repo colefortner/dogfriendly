@@ -28,6 +28,9 @@ ActiveRecord::Schema.define(version: 2021_03_30_143922) do
     t.string "state_abbrev"
     t.string "zip_code"
     t.string "business_type"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "ratings", force: :cascade do |t|

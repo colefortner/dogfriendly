@@ -40,3 +40,52 @@ Why does this not work? Ahhhhhh not in resources
         <% else %>
             <div>Be the first to rate this business</div>
         <% end %>
+
+
+
+        size=640x400&key=AIzaSyAuDaaz9Df8EH6dulqrvhGzxSap3DErSOY
+
+        <div><%= image_tag google_map(center: @business.address) %> </div>
+<img src="<%= google_map(center: [@business.latitude, @business.longitude].join(',')) %>"/>
+
+<div><%= image_tag google_map(center: @business.address) %> </div>
+<img src="<%= google_map(center: [@business.latitude, @business.longitude].join(',')) %>"/>
+
+<div><%= @business.address %></div>
+<div><%= @business.latitude %></div>
+<div><%= @business.longitude %></div>
+
+<% provide :head_tags do %>
+    <script>
+    document.addEventListener("DOMContentLoaded", function(){
+        initMap(<%=@business.latitude%>, <%=@business.longitude%>)
+    });
+    </script>
+<% end %>
+
+    <%# <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuDaaz9Df8EH6dulqrvhGzxSap3DErSOY&callback=initMap" ></script> %>
+        <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuDaaz9Df8EH6dulqrvhGzxSap3DErSOY&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+
+
+
+#map {
+    height: 100%;
+  }
+  
+  /* Optional: Makes the sample page fill the window. */
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+      <%= yield(:head_tags) %>
+
+
+      added to config > initializers > assets
+
+      # Added to use google map 
+Rails.application.config.assets.precompile += %w(application.js)
