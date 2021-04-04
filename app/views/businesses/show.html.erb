@@ -1,4 +1,29 @@
+        <script>
+      let map;
 
+      function initMap() {
+        const myLatLing = { lat: <%= @business.latitude %>, lng: <%= @business.longitude %> }
+        const map = new google.maps.Map(document.getElementById("map"), {
+          center: myLatLing,
+          zoom: 17,
+        });
+        const image = {
+            url: "https://image.flaticon.com/icons/png/512/21/21645.png",
+            scaledSize: new google.maps.Size(50, 50),
+            origin: new google.maps.Point(0,0),
+            anchor: new google.maps.Point(0,0)
+        };
+        const bikeLayer = new google.maps.BicyclingLayer();
+        bikeLayer.setMap(map);
+        new google.maps.Marker({
+            position: myLatLing,
+            map,
+            icon: image,
+            animation: google.maps.Animation.DROP,
+            title: "<%= @business.name %>"
+        })
+      }
+    </script>
 
 
 
@@ -32,8 +57,8 @@
         <div class="show-address"><%= @business.city %>, <%= @business.state_abbrev %> <%= @business.zip_code %></div>
         <div class="bc_type"><%= @business.business_type %></div>
     </div>
-    <div><%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@business.latitude},#{@business.longitude}&markers=#{@business.latitude},#{@business.longitude}&zoom=17&size=400x400&key=AIzaSyAuDaaz9Df8EH6dulqrvhGzxSap3DErSOY",
-              class: 'img-fluid img-rounded', alt: "#{@business.name} on the map"%></div>
+
+    <div id="map"></div>
 </div>
 </div>
 </div>
@@ -65,5 +90,5 @@
 <br>
 <br>
 
-<div id="map"></div>
+
 

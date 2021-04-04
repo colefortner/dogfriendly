@@ -89,3 +89,7 @@ Why does this not work? Ahhhhhh not in resources
 
       # Added to use google map 
 Rails.application.config.assets.precompile += %w(application.js)
+
+static map code
+    <%# <div><%#= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@business.latitude},#{@business.longitude}&markers=#{@business.latitude},#{@business.longitude}&zoom=17&size=400x400&key=AIzaSyAuDaaz9Df8EH6dulqrvhGzxSap3DErSOY",
+              class: 'img-fluid img-rounded', alt: "#{@business.name} on the map"%></div> %>

@@ -5,12 +5,26 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <%# <script>
+      let map;
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: { lat: -34.397, lng: 150.644 },
+          zoom: 8,
+        });
+      }
+    </script> %>
   </head>
 
   <body>
     <%= yield %>
+        <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuDaaz9Df8EH6dulqrvhGzxSap3DErSOY&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
   </body>
 </html>
