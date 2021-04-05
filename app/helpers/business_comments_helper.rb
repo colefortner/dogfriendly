@@ -1,0 +1,2 @@
+module BusinessCommentsHelper
+end

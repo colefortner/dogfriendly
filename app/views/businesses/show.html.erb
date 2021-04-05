@@ -77,12 +77,19 @@
 <% end %>
 <br>
 <div>
-    <% if logged_in? %>
-        <h1>Hi <%= current_user.firstname %>: a comment and rating form will go here once I figure out how to do it</h1>
-        <h1>Log in check is working though, how freaking cool is that???</h1>
+    <% if logged_in?  %>
+        <% if @business_comments.where(user_id: current_user.id, business_id: @business.id).first == nil %>
+            <%= form_for :business_comment, url:"/business_comments" do |f| %>
+                <%= f.text_field :body, placeholder: "comment" %>
+                <%= f.hidden_field :user_id, value: current_user.id %>
+                <%= f.hidden_field :business_id, value: @business.id %>
+                <%= f.submit %>
+            <%end%>
+        <%end%>
     <% end %>
 </div>
 <br>
+
 <%= link_to "home", :businesses, class: "show-home-link" %>
 <br>
 <br>
