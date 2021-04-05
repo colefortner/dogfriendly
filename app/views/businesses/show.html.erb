@@ -50,8 +50,7 @@
         </br>
     </div>
     <div class="show">
-        <div>Add Website here and db</div>
-        <div>Add Hours</div>
+        <div class="show-web-address">Website: <%= link_to "#{@business.website}", "https://www.#{@business.website}", :target => "blank" %></div>
         <div class="show-phone"><%= @business.phone_number %></div>
         <div class="show-address"><%= @business.address_number %> <%= @business.street_name %></div>
         <div class="show-address"><%= @business.city %>, <%= @business.state_abbrev %> <%= @business.zip_code %></div>
@@ -59,6 +58,19 @@
     </div>
 
     <div id="map"></div>
+
+    <div class="hours-title">Hours</div>
+        <div class="show-hours">
+            <div class="hours">
+                <p>Mon <%= @business.monday %></p>
+                <p>Tue <%= @business.tuesday %></p>
+                <p>Wed <%= @business.wednesday %></p>
+                <p>Thu <%= @business.thursday %></p>
+                <p>Fri <%= @business.friday %></p>
+                <p>Sat <%= @business.saturday %></p>
+                <p>Sun <%= @business.sunday %></p>
+            </div>
+        </div>
 </div>
 </div>
 </div>

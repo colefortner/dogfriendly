@@ -3,6 +3,14 @@ class CreateBusinesses < ActiveRecord::Migration[6.1]
     create_table :businesses do |t|
       t.string :name
       t.string :img_url
+      t.string :website
+      t.string :monday
+      t.string :tuesday
+      t.string :wednesday
+      t.string :thursday
+      t.string :friday
+      t.string :saturday
+      t.string :sunday
       t.string :phone_number
       t.integer :address_number
       t.string :street_name
