@@ -104,6 +104,18 @@
     <% end %>
 </div>
 <br>
+        <div>
+            <% if logged_in?  %>
+                <% if @business.business_user_relationships.where(user_id: current_user.id, business_id: @business.id).first == nil %>
+                    <%= form_for :business_user_relationship, url:"/business_user_relationships" do |f| %>
+                        <%= f.hidden_field :relationship, value: true %>
+                        <%= f.hidden_field :business_id, value: @business.id %>
+                        <%= f.hidden_field :user_id, value: current_user.id %>
+                        <%= f.submit %>
+                    <%end%>
+                <%end%>
+            <% end%>
+        </div>
 
 <%= link_to "home", :businesses, class: "show-home-link" %>
 <br>

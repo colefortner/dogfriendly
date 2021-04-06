@@ -16,4 +16,6 @@ Rails.application.routes.draw do
 
   resources :business_comments
 
+  resources :business_user_relationships
+
 end

@@ -6,5 +6,7 @@ class Business < ApplicationRecord
     has_many :users, through: :business_comments
     has_many :ratings
     has_many :users, through: :ratings
+    has_many :business_user_relationships
+    has_many :users, through: :business_user_relationships
 end
 

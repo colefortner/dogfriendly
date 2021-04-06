@@ -2,14 +2,13 @@
 <br>
 <br>
 <% if logged_in? %>
-    <h1>You are Logged In, <%=current_user.username %></h1>
+    <h1><%=current_user.firstname %>'s Dashboard</h1>
 
-<% end %>
-<h1>Businesses Browsing Page</h1> 
+<% end %> 
 
 <div class="greeting">
     <% if logged_in? %>
-        <div class="greet">Hi <%= current_user.firstname %>!</div>
+        <div class="greet">Hi <%= current_user.firstname %></div>
         <div><%= button_to "Home", '/businesses', method: :get %></div>
         <div><%= button_to "logout", "/login", method: :delete, class: "page-top-buttons" %></div>
     <% end %>
@@ -17,6 +16,7 @@
 
 <div class="business-card-container">
 <% @businesses.each do |business | %>
+    <% if business.business_user_relationships.where(user_id: current_user.id).first %>
     <div class="business_card">
         <div class="bc_name"><%= link_to business.name, business %></div>
         <img class="bc_img" src="<%= business.img_url %>"/>
@@ -24,8 +24,12 @@
         <div class="bc_address"><%= business.address_number %> <%= business.street_name %></div>
         <div class="bc_address"><%= business.city %>, <%= business.state_abbrev %> <%= business.zip_code %></div>
         <div class="bc_type"><%= business.business_type %></div>
+
+        <div><%= button_to "Add", '/businesses', method: :get %></div>
+        <div><%= button_to "Delete", business_user_relationship_path(id: business.business_user_relationships.first.id), method: :delete, class: "page-top-buttons" %></div>
     </div>
     </br>
+    <%end%>
 <% end %>
 </div>
 
