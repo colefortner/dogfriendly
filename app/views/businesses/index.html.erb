@@ -4,6 +4,7 @@
 <div class="greeting">
     <% if logged_in? %>
         <div class="greet">Hi <%= current_user.firstname %>!</div>
+        <div><%= button_to "Dashboard", '/users', method: :get %></div>
         <div><%= button_to "logout", "/login", method: :delete, class: "page-top-buttons" %></div>
     <% else %>
         <div><%= button_to "register", "/users/new", method: :get, class: "page-top-buttons" %></div>

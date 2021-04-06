@@ -84,7 +84,10 @@
             <% @ratings.where(business_id: @business.id, user_id: comment.user.id).first.rating.times do |i| %>
                 <img class="comment-paws" src="<%= asset_path('yellow-paw-print-md.png') %>"/>
             <% end %>
-        <% end %>        
+        <% end %>   
+        <% if comment.user_id == current_user.id %>
+            <%= link_to "edit", edit_business_comment_path(comment.id) %>     
+        <% end %>
     </div>
 <% end %>
 <br>

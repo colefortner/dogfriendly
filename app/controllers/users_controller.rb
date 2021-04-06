@@ -2,6 +2,7 @@ class UsersController < ApplicationController
     
 
     def index
+        @businesses = Business.all
     end
 
     def new
@@ -16,5 +17,6 @@ class UsersController < ApplicationController
 
         redirect_to '/'
     end
+
 end
 

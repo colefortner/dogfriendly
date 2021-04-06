@@ -10,6 +10,7 @@ class BusinessCommentsController < ApplicationController
         redirect_to '/'
     end
     def edit
+        @business_comment = BusinessComment.find(params[:id])
     end
     def destroy
     end
