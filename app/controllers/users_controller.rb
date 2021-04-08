@@ -2,7 +2,9 @@ class UsersController < ApplicationController
     
 
     def index
+        @user_relationships = UserUserRelationship.all
         @businesses = Business.all
+        @users = User.all
     end
 
     def new

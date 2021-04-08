@@ -35,12 +35,12 @@
 <div class="stuff">
     <div class="show-rating-container">
 
-        <% if average(@business, @ratings) > 0 %>       
+        <% if @business.average > 0 %>       
             <div class="show-rating">Rating:</div> 
 
             <div class="show-paws">
 
-                <% average(@business, @ratings).times do |i| %>
+                <% @business.average.times do |i| %>
                     <img class="show-paw" src="<%= asset_path('yellow-paw-print-md.png') %>"/>
                 <% end %>
             </div>
@@ -85,7 +85,7 @@
                 <img class="comment-paws" src="<%= asset_path('yellow-paw-print-md.png') %>"/>
             <% end %>
         <% end %>   
-        <% if comment.user_id == current_user.id %>
+        <% if logged_in? && (comment.user_id == current_user.id) %>
             <%= link_to "edit", edit_business_comment_path(comment.id) %>     
         <% end %>
     </div>

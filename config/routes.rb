@@ -18,4 +18,6 @@ Rails.application.routes.draw do
 
   resources :business_user_relationships
 
+  resources :user_user_relationships
+
 end

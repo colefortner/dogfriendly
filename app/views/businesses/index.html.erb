@@ -26,9 +26,9 @@
 
         <p class="rating">Rating:</p> 
 
-        <% if average(business, @ratings) > 0 %>               
+        <% if business.average > 0 %>               
             <div class="paws">
-                <% average(business, @ratings).times do |i| %>
+                <% business.average.times do |i| %>
                     <img class="paw" src="<%= asset_path('yellow-paw-print-md.png') %>"/>
                 <% end %>
             </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_06_195713) do
+ActiveRecord::Schema.define(version: 2021_04_07_022656) do
 
   create_table "business_comments", force: :cascade do |t|
     t.string "body"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2021_04_06_195713) do
   end
 
   create_table "business_user_relationships", force: :cascade do |t|
-    t.boolean "relationship"
+    t.boolean "relationship", default: false
     t.integer "business_id"
     t.integer "user_id"
   end
@@ -51,6 +51,12 @@ ActiveRecord::Schema.define(version: 2021_04_06_195713) do
     t.integer "rating"
     t.integer "business_id"
     t.integer "user_id"
+  end
+
+  create_table "user_user_relationships", force: :cascade do |t|
+    t.boolean "relationship", default: false
+    t.integer "user_id"
+    t.integer "friend_user_id"
   end
 
   create_table "users", force: :cascade do |t|

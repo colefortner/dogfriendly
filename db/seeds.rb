@@ -296,6 +296,8 @@ user.business_user_relationships.create(relationship: true, business_id: 1)
 user.business_user_relationships.create(relationship: true, business_id: 3)
 user.business_user_relationships.create(relationship: true, business_id: 8)
 
+user.user_user_relationships.create(relationship: true, friend_user_id: 2)
+
 user2 = User.where(id: 2).first
 user2.business_comments.create(body: "Nice low key bar with great beer. ", business_id: 1)
 user2.business_comments.create(body: "One of the best places in St. Pete to have a beer with dog friends", business_id: 2)
