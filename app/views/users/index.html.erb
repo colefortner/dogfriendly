@@ -14,10 +14,30 @@
         <div class="bc_address"><%= business.city %>, <%= business.state_abbrev %> <%= business.zip_code %></div>
         <div class="bc_type"><%= business.business_type %></div>
 
-        <div><%= button_to "Delete", business_user_relationship_path(id: business.business_user_relationships.first.id), method: :delete, class: "page-top-buttons" %></div>
+        <div><%= button_to "Remove from Dashboard", business_user_relationship_path(id: business.business_user_relationships.first.id), method: :delete, class: "page-top-buttons" %></div>
+        <br>
+        <div>
+            <div>Checked in:   
+                <% if !(business.user_check_ins.first == nil) %>
+                    <% business.user_check_ins.each do |check_in| %>
+                        <% if check_in.user_id == current_user.id %>
+                            You
+                        <% elsif %>
+                            <%= check_in.user.firstname %>
+                        <%end%>
+                    <% end%>
+                <%end%>
+            </div>
+        </div>
     </div>
     </br>
+
+
     <%end%>
+    
+
+    
+
 <% end %>
 </div>
 

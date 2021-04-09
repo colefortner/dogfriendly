@@ -1,6 +1,7 @@
 class UserCheckInsController < ApplicationController
 
   def index
+    @user_check_ins = UserCheckIn.all
   end
   
   def new

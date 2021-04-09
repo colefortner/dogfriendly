@@ -2,6 +2,8 @@ class UsersController < ApplicationController
     
   def index
     @user_relationships = UserUserRelationship.all
+    @user_check_ins = UserCheckIn.all
+
     @businesses = Business.all
     @users = User.all
   end

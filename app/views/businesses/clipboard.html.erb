@@ -190,3 +190,7 @@ check for friend request
             <% if @user_relationships.where(user_id: current_user.id, friend_user_id: user.id, relationship: true).first == nil%>
                 <% if @user_relationships.where(user_id: user.id, friend_user_id: current_user.id, relationship: false).first == nil %>
                     <% if @user_relationships.where(user_id: current_user.id, friend_user_id: user.id, relationship: false).first == nil%>
+
+
+
+                    !(business.user_check_ins.first == nil)  && 
