@@ -20,4 +20,6 @@ Rails.application.routes.draw do
 
   resources :user_user_relationships
 
+  resources :create_user_checkins
+
 end

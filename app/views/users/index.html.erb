@@ -1,18 +1,7 @@
 <br>
-<br>
-<br>
 <% if logged_in? %>
     <h1><%=current_user.firstname %>'s Dashboard</h1>
-
 <% end %> 
-
-<div class="greeting">
-    <% if logged_in? %>
-        <div class="greet">Hi <%= current_user.firstname %></div>
-        <div><%= button_to "Home", '/businesses', method: :get %></div>
-        <div><%= button_to "logout", "/login", method: :delete, class: "page-top-buttons" %></div>
-    <% end %>
-</div>
 
 <div class="business-card-container">
 <% @businesses.each do |business | %>
@@ -32,18 +21,23 @@
 <% end %>
 </div>
 
-<h2>Users</h2>
+<h2>Other Users</h2>
 <% @users.each do |user| %>
 
     <% if (user.id != current_user.id) %>
         <% if @user_relationships.where(user_id: user.id, friend_user_id: current_user.id, relationship: true).first == nil %>
             <% if @user_relationships.where(user_id: current_user.id, friend_user_id: user.id, relationship: true).first == nil%>
-
-                <div><%= user.firstname %> - send friend request</div>
-                <%= form_for :user_user_relationship, url:"/user_user_relationships" do |f| %>
-                    <%= f.hidden_field :user_id, value: current_user.id %>
-                    <%= f.hidden_field :friend_user_id, value: user.id %>
-                    <%= f.submit %>
+                <% if @user_relationships.where(user_id: user.id, friend_user_id: current_user.id, relationship: false).first == nil %>
+                    <% if @user_relationships.where(user_id: current_user.id, friend_user_id: user.id, relationship: false).first == nil%>
+                        <div  style="display: flex">
+                            <div><%= user.firstname %>  </div>
+                            <%= form_for :user_user_relationship, url:"/user_user_relationships" do |f| %>
+                                <%= f.hidden_field :user_id, value: current_user.id %>
+                                <%= f.hidden_field :friend_user_id, value: user.id %>
+                                <div style="margin-left: 20px; margin-bottom: 8px;"><%= f.submit "Send friend request", class: "page-top-buttons" %></div>
+                            <%end%>
+                        </div>
+                    <%end%>
                 <%end%>
             <%end%>  
         <%end%>
@@ -52,33 +46,19 @@
 
 <h2>Friends</h2>
 <% @user_relationships.each do |user_relationship| %>
-    <% if (user_relationship.user_id == current_user.id) && (user_relationship.relationship == true) %>
-        <div><%= @users.where(id: user_relationship.friend_user_id).first.firstname %></div>
-        <%# <div>first</div> %>
-    <% elsif(user_relationship.friend_user_id == current_user.id) && (user_relationship.relationship == true) %>
-        <div><%= @users.where(id: user_relationship.user_id).first.firstname %></div>
-        <%# <div>second</div> %>
-    <%end%>
+    <div><%= user_relationship.friend?(@users, current_user) %></div>
 <% end %>
-
 
 <h2>Friend Requests</h2>
 <% @user_relationships.each do |user_relationship|%>
-    <% if (user_relationship.friend_user_id == current_user.id) && !(user_relationship.relationship == true) %>
+    <% if user_relationship.friend_requests?(@users, current_user) %>
         <p>You have a friend request from <%= @users.where(id: user_relationship.user_id).first.firstname %></p>
         <%= form_for :user_user_relationship, url:"/user_user_relationships/#{user_relationship.id}", method: :put do |f| %>
-        <%= f.hidden_field :relationship, value: true %>
-        <%= f.submit %>
+            <%= f.hidden_field :relationship, value: true %>
+            <%= f.submit "Accept" %>
+        <%end%>
     <%end%>
-    <%end%>
-
 <% end %>   
-<%# url:"/user_user_relationships" %>
-<%# edit_user_user_relationship_path(id: user_relationship.id) %>
-<br>
-<br>
-<br>
-<br>
-<%= button_to "Sign Up", '/users/new', method: :get %>
 
-<%= button_to "Login", '/login', method: :get %>
+<h2>Your Pending Friend Requests</h2>
+

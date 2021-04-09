@@ -1,28 +1,28 @@
 class User < ApplicationRecord
-    # after_create :set_users_friend_id
-    has_secure_password
-    validates :username, length: { maximum: 10 , message: "User names must be 10 characters or less"}
+   
+  has_secure_password
 
-    has_many :business_comments
-    has_many :businesses, through: :business_comments
-    has_many :ratings
-    has_many :businesses, through: :ratings
-    has_many :business_user_relationships
-    has_many :businesses, through: :business_user_relationships
-    has_many :user_user_relationships
-    has_many :users, through: :user_user_relationships
+  validates :username, presence: true,
+    length: { minimum: 2, maximum: 15 , message: "must be between 2-15 characters"}, 
+    format: { with: /\A[a-zA-Z0-9_]+\z/i, message: "can only consist of letters, numbers and underscores" },
+    uniqueness: true
+  validates :firstname, presence: true,
+    length: { minmum: 2, maximum: 15, message: "must be between 2-15 characters"},
+    format: { with: /\A[a-zA-Z]+\z/i, message: "can only consist of letters"}
+  validates :password, presence: true,
+    length: { minimum: 6, maximum: 15, message: "must be between 6-15 characters"}
 
+  has_many :business_comments
+  has_many :businesses, through: :business_comments
+  has_many :ratings
+  has_many :businesses, through: :ratings
+  has_many :business_user_relationships
+  has_many :businesses, through: :business_user_relationships
+  has_many :user_user_relationships
+  has_many :users, through: :user_user_relationships
+  has_many :user_check_ins
+  has_many :businesses, through: :user_check_ins
 
-    # private
-
-    # def set_users_friend_id
-    #     self.friend_user_id = self.id
-    #     puts "##################"
-    #     puts self.id
-    #     puts self.friend_user_id
-    #     puts "##################"
-
-    # end
 end
 
 

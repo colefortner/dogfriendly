@@ -1,5 +1,7 @@
 <h1>Register</h1>
-
+ <% if flash[:messages] %>
+   <h2 class="register-flash"><%= flash[:messages] %></h2>
+<% end %>
 <%= form_for @user do |f| %>
     <%= f.label :firstname %><br>
     <%= f.text_field :firstname %><br>

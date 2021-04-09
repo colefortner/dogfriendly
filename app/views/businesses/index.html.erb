@@ -1,44 +1,32 @@
 
 <h1>Businesses Browsing Page</h1> 
 
-<div class="greeting">
-    <% if logged_in? %>
-        <div class="greet">Hi <%= current_user.firstname %>!</div>
-        <div><%= button_to "Dashboard", '/users', method: :get %></div>
-        <div><%= button_to "logout", "/login", method: :delete, class: "page-top-buttons" %></div>
-    <% else %>
-        <div><%= button_to "register", "/users/new", method: :get, class: "page-top-buttons" %></div>
-        <div><%= button_to "login", "/login", method: :get, class: "page-top-buttons"  %></div>
-    <% end %>
-</div>
-
 <div class="business-card-container">
-<% @businesses.each do |business | %>
-    <div class="business_card">
-        <div class="bc_name"><%= link_to business.name, business %></div>
-        <img class="bc_img" src="<%= business.img_url %>"/>
-        <div class="bc_phone"><%= business.phone_number %></div>
-        <div class="bc_address"><%= business.address_number %> <%= business.street_name %></div>
-        <div class="bc_address"><%= business.city %>, <%= business.state_abbrev %> <%= business.zip_code %></div>
-        <div class="bc_type"><%= business.business_type %></div>
+    <% @businesses.each do |business | %>
+        <div class="business_card">
+            <div class="bc_name"><%= link_to business.name, business %></div>
+            <img class="bc_img" src="<%= business.img_url %>"/>
+            <div class="bc_phone"><%= business.phone_number %></div>
+            <div class="bc_address"><%= business.address_number %> <%= business.street_name %></div>
+            <div class="bc_address"><%= business.city %>, <%= business.state_abbrev %> <%= business.zip_code %></div>
+            <div class="bc_type"><%= business.business_type %></div>
 
         
 
-        <p class="rating">Rating:</p> 
+            <p class="rating">Rating:</p> 
 
-        <% if business.average > 0 %>               
-            <div class="paws">
-                <% business.average.times do |i| %>
-                    <img class="paw" src="<%= asset_path('yellow-paw-print-md.png') %>"/>
-                <% end %>
-            </div>
-        <% else %>
-            <div class="no-rating-yet">Be the first to rate this business</div>
-        <% end %>
-
-    </div>
-    </br>
-<% end %>
+            <% if business.average > 0 %>               
+                <div class="paws">
+                    <% business.average.times do |i| %>
+                        <img class="paw" src="<%= asset_path('yellow-paw-print-md.png') %>"/>
+                    <% end %>
+                </div>
+            <% else %>
+                <div class="no-rating-yet">Be the first to rate this business</div>
+            <% end %>
+        </div>
+        </br>
+    <% end %>
 </div>
 <heroku>
 <h2>Todo/problem log</h2>

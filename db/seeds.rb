@@ -278,6 +278,25 @@ Business.create(name: "The Chattaway",
                 zip_code: 33705,
                 business_type: "restaurant",
                 address: "The Chattaway, 358 22nd Ave. S, St. Petersburg, FL 33705")
+
+Business.create(name: "St. Petersburg Saturday Morning Market",
+                img_url: "http://downtownstpete.com/wp-content/uploads/2016/02/SaturdayMorningMarket_DTSP-1.jpg",
+                website: "saturdaymorningmarket.com",
+                monday: "Closed",
+                tuesday: "Closed",
+                wednesday: "Closed",
+                thursday: "Closed",
+                friday: "Closed",
+                saturday: "9:00 AM - 2:00 PM",
+                sunday: "Closed",
+                phone_number: "727-455-4921",
+                address_number: 101,
+                street_name: "1st St. SE",
+                city: "St. Petersburg",
+                state_abbrev: "FL",
+                zip_code: 33701,
+                business_type: "misc",
+                address: "St. Petersburg Saturday Morning Market, 101 1st St SE, St. Petersburg, FL 33701")
                 
 
 user = User.first

@@ -1,7 +1,7 @@
-        <script>
-      let map;
+<script>
+    let map;
 
-      function initMap() {
+    function initMap() {
         const myLatLing = { lat: <%= @business.latitude %>, lng: <%= @business.longitude %> }
         const map = new google.maps.Map(document.getElementById("map"), {
           center: myLatLing,
@@ -22,31 +22,25 @@
             animation: google.maps.Animation.DROP,
             title: "<%= @business.name %>"
         })
-      }
-    </script>
-
-
-
+    }
+</script>
 
 <h1><%= @business.name %></h1>
 <div class="show-business-info">
-<img class="show-img" src="<%= @business.img_url %>" />
+    <img class="show-img" src="<%= @business.img_url %>" />
 
-<div class="stuff">
-    <div class="show-rating-container">
-
-        <% if @business.average > 0 %>       
-            <div class="show-rating">Rating:</div> 
-
-            <div class="show-paws">
-
-                <% @business.average.times do |i| %>
-                    <img class="show-paw" src="<%= asset_path('yellow-paw-print-md.png') %>"/>
-                <% end %>
-            </div>
-        <% else %>
-            <div class="no-rating-yet">Be the first to rate this business</div>
-        <% end %>
+    <div class="stuff">
+        <div class="show-rating-container">
+            <% if @business.average > 0 %>       
+                <div class="show-rating">Rating:</div> 
+                <div class="show-paws">
+                    <% @business.average.times do |i| %>
+                        <img class="show-paw" src="<%= asset_path('yellow-paw-print-md.png') %>"/>
+                    <% end %>
+                </div>
+            <% else %>
+                <div class="no-rating-yet">Be the first to rate this business</div>
+            <% end %>
         </br>
     </div>
     <div class="show">
@@ -71,8 +65,7 @@
                 <p>Sun <%= @business.sunday %></p>
             </div>
         </div>
-</div>
-</div>
+    </div>
 </div>
 <br>
 <h2>Reviews</h2>
@@ -93,7 +86,11 @@
 <br>
 <div>
     <% if logged_in?  %>
+                <% if flash[:messages] %>
+                <h2 class="register-flash"><%= flash[:messages] %></h2>
+            <% end %>
         <% if @business_comments.where(user_id: current_user.id, business_id: @business.id).first == nil %>
+
             <%= form_for :business_comment, url:"/business_comments" do |f| %>
                 <%= f.text_field :body, placeholder: "comment" %>
                 <%= f.hidden_field :user_id, value: current_user.id %>
@@ -104,25 +101,31 @@
     <% end %>
 </div>
 <br>
-        <div>
-            <% if logged_in?  %>
-                <% if @business.business_user_relationships.where(user_id: current_user.id, business_id: @business.id).first == nil %>
-                    <%= form_for :business_user_relationship, url:"/business_user_relationships" do |f| %>
-                        <%= f.hidden_field :relationship, value: true %>
-                        <%= f.hidden_field :business_id, value: @business.id %>
-                        <%= f.hidden_field :user_id, value: current_user.id %>
-                        <%= f.submit %>
-                    <%end%>
-                <%end%>
-            <% end%>
-        </div>
+<div>
+    <% if logged_in?  %>
+        <% if @business.business_user_relationships.where(user_id: current_user.id, business_id: @business.id).first == nil %>
+            <%= form_for :business_user_relationship, url:"/business_user_relationships" do |f| %>
+                <%= f.hidden_field :relationship, value: true %>
+                <%= f.hidden_field :business_id, value: @business.id %>
+                <%= f.hidden_field :user_id, value: current_user.id %>
+                <%= f.submit %>
+            <%end%>
+        <%end%>
+    <% end%>
+</div>
+<div>
+    <% if logged_in?  %>
+        <% if @business.user_check_ins.where(user_id: current_user.id, business_id: @business.id).first == nil %>
+            <%= form_for :user_check_in, url:"/user_check_ins" do |f| %>
+                <%= f.hidden_field :checked_in, value: true %>
+                <%= f.hidden_field :business_id, value: @business.id %>
+                <%= f.hidden_field :user_id, value: current_user.id %>
+                <%= f.submit %>
+            <%end%>
+        <%end%>
+    <% end%>
+</div>
 
-<%= link_to "home", :businesses, class: "show-home-link" %>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 
 

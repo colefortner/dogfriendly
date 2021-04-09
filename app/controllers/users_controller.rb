@@ -1,24 +1,29 @@
 class UsersController < ApplicationController
     
+  def index
+    @user_relationships = UserUserRelationship.all
+    @businesses = Business.all
+    @users = User.all
+  end
 
-    def index
-        @user_relationships = UserUserRelationship.all
-        @businesses = Business.all
-        @users = User.all
+  def new
+    @user = User.new
+  end
+
+  def create
+    # @user = User.create(params.require(:user).permit(:firstname, :username, :password))
+    @user = User.new(params.require(:user).permit(:firstname, :username, :password))
+    if @user.valid?
+      @user.save
+      session[:user_id] = @user.id
+
+      redirect_to '/users'
+    else
+      flash.now[:messages] = @user.errors.full_messages[0]
+
+      render :new
     end
-
-    def new
-        @user = User.new
-
-    end
-
-    def create
-        @user = User.create(params.require(:user).permit(:firstname, :username, :password))
-
-        session[:user_id] = @user.id
-
-        redirect_to '/'
-    end
+  end
 
 end
 

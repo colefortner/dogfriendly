@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_07_022656) do
+ActiveRecord::Schema.define(version: 2021_04_09_041040) do
 
   create_table "business_comments", force: :cascade do |t|
     t.string "body"
@@ -49,6 +49,12 @@ ActiveRecord::Schema.define(version: 2021_04_07_022656) do
 
   create_table "ratings", force: :cascade do |t|
     t.integer "rating"
+    t.integer "business_id"
+    t.integer "user_id"
+  end
+
+  create_table "user_check_ins", force: :cascade do |t|
+    t.boolean "checked_in", default: false
     t.integer "business_id"
     t.integer "user_id"
   end
