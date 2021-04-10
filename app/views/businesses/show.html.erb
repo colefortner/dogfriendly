@@ -108,11 +108,12 @@
                 <%= f.hidden_field :relationship, value: true %>
                 <%= f.hidden_field :business_id, value: @business.id %>
                 <%= f.hidden_field :user_id, value: current_user.id %>
-                <%= f.submit %>
+                <%= f.submit  class: "page-top-buttons" %>
             <%end%>
         <%end%>
     <% end%>
 </div>
+<br>
 <div>
     <% if logged_in?  %>
         <% if @business.user_check_ins.where(user_id: current_user.id, business_id: @business.id).first == nil %>
@@ -120,7 +121,7 @@
                 <%= f.hidden_field :checked_in, value: true %>
                 <%= f.hidden_field :business_id, value: @business.id %>
                 <%= f.hidden_field :user_id, value: current_user.id %>
-                <%= f.submit %>
+                <%= f.submit class: "page-top-buttons" %>
             <%end%>
         <%end%>
     <% end%>

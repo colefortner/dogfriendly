@@ -23,6 +23,9 @@ class User < ApplicationRecord
   has_many :user_check_ins
   has_many :businesses, through: :user_check_ins
 
+  has_one_attached :avatar
+  # has_may_attached
+
 end
 
 

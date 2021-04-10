@@ -194,3 +194,32 @@ check for friend request
 
 
                     !(business.user_check_ins.first == nil)  && 
+
+
+                        <% if !(business.user_check_ins.first == nil)  && 
+          (!(business.user_check_ins.first.user.user_user_relationships.where(id: current_user.id, relationship: true).first == nil)  || 
+          !(business.user_check_ins.first.user.user_user_relationships.where(friend_user_id: current_user.id, relationship: true).first == nil))  %>
+        <%= business.user_check_ins.first.user.firstname %>
+        <%end%>
+
+        Article about uploading pictures you used
+
+        https://medium.com/@anaharris/how-to-add-image-upload-functionality-to-your-rails-app-9f7fc3f3d042
+
+
+
+
+        <% current_user.user_user_relationships.each do |user_relationship| %>
+            <% if user_relationship.relationship == true %>
+
+                        <div  style="display: flex">
+                            <div><%= user_relationship.user.firstname %>  </div>
+                            <%= form_for :user_user_relationship, url:"/user_user_relationships" do |f| %>
+                                <%= f.hidden_field :user_id, value: current_user.id %>
+                                <%= f.hidden_field :friend_user_id, value: user_relationship.user.id %>
+                                <div style="margin-left: 20px; margin-bottom: 8px;"><%= f.submit "Send friend request", class: "page-top-buttons" %></div>
+                            <%end%>
+                        </div>
+  
+            <%end%>  
+        <%end%>

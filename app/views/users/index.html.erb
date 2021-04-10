@@ -4,46 +4,38 @@
 <% end %> 
 
 <div class="business-card-container">
-<% @businesses.each do |business | %>
-    <% if business.business_user_relationships.where(user_id: current_user.id).first %>
-    <div class="business_card">
-        <div class="bc_name"><%= link_to business.name, business %></div>
-        <img class="bc_img" src="<%= business.img_url %>"/>
-        <div class="bc_phone"><%= business.phone_number %></div>
-        <div class="bc_address"><%= business.address_number %> <%= business.street_name %></div>
-        <div class="bc_address"><%= business.city %>, <%= business.state_abbrev %> <%= business.zip_code %></div>
-        <div class="bc_type"><%= business.business_type %></div>
-
-        <div><%= button_to "Remove from Dashboard", business_user_relationship_path(id: business.business_user_relationships.first.id), method: :delete, class: "page-top-buttons" %></div>
-        <br>
-        <div>
-            <div>Checked in:   
-                <% if !(business.user_check_ins.first == nil) %>
-                    <% business.user_check_ins.each do |check_in| %>
-                        <% if check_in.user_id == current_user.id %>
-                            You
-                        <% elsif %>
-                            <%= check_in.user.firstname %>
-                        <%end%>
-                    <% end%>
-                <%end%>
+    <% @businesses.each do |business | %>
+        <% if business.business_user_relationships.where(user_id: current_user.id).first %>
+            <div class="business_card">
+                <div class="bc_name"><%= link_to business.name, business %></div>
+                <img class="bc_img" src="<%= business.img_url %>"/>
+                <div class="bc_phone"><%= business.phone_number %></div>
+                <div class="bc_address"><%= business.address_number %> <%= business.street_name %></div>
+                <div class="bc_address"><%= business.city %>, <%= business.state_abbrev %> <%= business.zip_code %></div>
+                <div class="bc_type"><%= business.business_type %></div>
+                <div><%= button_to "Remove from Dashboard", business_user_relationship_path(id: business.business_user_relationships.first.id), method: :delete, class: "page-top-buttons" %></div>
+                <br>
+                <div>
+                    <div>Checked in:   
+                        <% if !(business.user_check_ins.first == nil) %>
+                            <% business.user_check_ins.each do |check_in| %>
+                                <% if check_in.user_id == current_user.id %>
+                                    You
+                                <% elsif %>
+                                    <%= check_in.user.firstname %>
+                                <% end %> 
+                            <% end %>
+                        <% end %>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    </br>
-
-
-    <%end%>
-    
-
-    
-
-<% end %>
+        <% end %>
+    <% end %>
 </div>
+</br>
 
 <h2>Other Users</h2>
 <% @users.each do |user| %>
-
     <% if (user.id != current_user.id) %>
         <% if @user_relationships.where(user_id: user.id, friend_user_id: current_user.id, relationship: true).first == nil %>
             <% if @user_relationships.where(user_id: current_user.id, friend_user_id: user.id, relationship: true).first == nil%>
@@ -55,14 +47,14 @@
                                 <%= f.hidden_field :user_id, value: current_user.id %>
                                 <%= f.hidden_field :friend_user_id, value: user.id %>
                                 <div style="margin-left: 20px; margin-bottom: 8px;"><%= f.submit "Send friend request", class: "page-top-buttons" %></div>
-                            <%end%>
+                            <% end %>
                         </div>
-                    <%end%>
-                <%end%>
-            <%end%>  
-        <%end%>
+                    <% end %>
+                <% end %>
+            <% end %>  
+        <% end %>
     <% end %>
-<%end%>
+<% end %>
 
 <h2>Friends</h2>
 <% @user_relationships.each do |user_relationship| %>
@@ -71,14 +63,14 @@
 
 <h2>Friend Requests</h2>
 <% @user_relationships.each do |user_relationship|%>
-    <% if user_relationship.friend_requests?(@users, current_user) %>
+    <% if user_relationship.friend_requests?(current_user) %>
         <p>You have a friend request from <%= @users.where(id: user_relationship.user_id).first.firstname %></p>
         <%= form_for :user_user_relationship, url:"/user_user_relationships/#{user_relationship.id}", method: :put do |f| %>
             <%= f.hidden_field :relationship, value: true %>
             <%= f.submit "Accept" %>
-        <%end%>
-    <%end%>
+        <% end %>
+    <% end %>
 <% end %>   
 
 <h2>Your Pending Friend Requests</h2>
-
+<p>todo</p>

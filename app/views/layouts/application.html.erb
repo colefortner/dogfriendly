@@ -31,6 +31,7 @@
         <div class="greet">Hi <%= current_user.firstname %>!</div>
         <div><%= button_to "#{current_user.firstname}'s Dashboard", '/users', method: :get, class: "page-top-buttons" %></div>
         <div><%= button_to "logout", "/login", method: :delete, class: "page-top-buttons" %></div>
+        <div><%= button_to "#{current_user.firstname}'s Profile", "/users/#{current_user.id}", method: :get, class: "page-top-buttons" %></div>
     <% else %>
         <div><%= button_to "register", "/users/new", method: :get, class: "page-top-buttons" %></div>
         <div><%= button_to "login", "/login", method: :get, class: "page-top-buttons"  %></div>
