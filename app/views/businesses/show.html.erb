@@ -92,10 +92,10 @@
         <% if @business_comments.where(user_id: current_user.id, business_id: @business.id).first == nil %>
 
             <%= form_for :business_comment, url:"/business_comments" do |f| %>
-                <%= f.text_field :body, placeholder: "comment" %>
+                <%= f.text_field :body, placeholder: "comment", class: "comment-field" %>
                 <%= f.hidden_field :user_id, value: current_user.id %>
                 <%= f.hidden_field :business_id, value: @business.id %>
-                <%= f.submit %>
+                <%= f.submit "Add Comment", class: "page-top-buttons" %>
             <%end%>
         <%end%>
     <% end %>
@@ -108,7 +108,7 @@
                 <%= f.hidden_field :relationship, value: true %>
                 <%= f.hidden_field :business_id, value: @business.id %>
                 <%= f.hidden_field :user_id, value: current_user.id %>
-                <%= f.submit  class: "page-top-buttons" %>
+                <%= f.submit  "Save to Dashboard", class: "page-top-buttons" %>
             <%end%>
         <%end%>
     <% end%>
@@ -121,7 +121,7 @@
                 <%= f.hidden_field :checked_in, value: true %>
                 <%= f.hidden_field :business_id, value: @business.id %>
                 <%= f.hidden_field :user_id, value: current_user.id %>
-                <%= f.submit class: "page-top-buttons" %>
+                <%= f.submit "Check In", class: "page-top-buttons" %>
             <%end%>
         <%end%>
     <% end%>
