@@ -1,4 +1,15 @@
-<h1>Register</h1>
+  <div class="future-navbar-items">
+    <div class="greeting" style="width: 100%; background: gray; padding-bottom: 10px; padding-top: 10px; position:fixed;">
+        <div style="margin-left: 10px; margin-top: auto; margin-bottom: auto; font-size: 30px; margin-right: 40px; color: white;">
+            <span style="border: 3px solid white; border-radius: 100%; padding: 5px; background-color: rgba(0, 0, 0, 0.5);">DF</span> 
+            St. Pete</div>
+        <div style="text-align: left;"><%= button_to "Home", '/businesses', method: :get, class: "top-buttons", style: "margin:0px; padding-top: 2px; padding-bottom: 2px;" %></div>
+  
+        <div><%= button_to "Login", "/login", method: :get, class: "top-buttons", style: "margin:0px; padding-top: 2px; padding-bottom: 2px;"  %></div>
+  </div>
+</div>
+<div class=registration-container style="margin-left: 100px;">
+<h1 style="margin-top: 100px;">Create a New Account</h1>
  <% if flash[:messages] %>
    <h2 class="register-flash"><%= flash[:messages] %></h2>
 <% end %>
@@ -13,6 +24,4 @@
     <%= f.password_field :password %><br><br>
     <%= f.submit %>
 <% end %>
-<br>
-
-<div><%= link_to "home", businesses_path %></div>
+</div>

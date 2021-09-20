@@ -223,3 +223,32 @@ check for friend request
   
             <%end%>  
         <%end%>
+
+
+          <div class="future-navbar-items">
+    <div class="greeting">
+        <div><%= button_to "Home", '/businesses', method: :get, class: "page-top-buttons" %></div>
+
+    <% if logged_in? %>
+        <div class="page-top-buttons">make a navbar partial</div>
+        <div class="greet">Hi <%= current_user.firstname %>!</div>
+        <div><%= button_to "#{current_user.firstname}'s Dashboard", '/users', method: :get, class: "page-top-buttons" %></div>
+        <div><%= button_to "logout", "/login", method: :delete, class: "page-top-buttons" %></div>
+        <div><%= button_to "#{current_user.firstname}'s Profile", "/users/#{current_user.id}", method: :get, class: "page-top-buttons" %></div>
+    <% else %>
+        <div><%= button_to "register", "/users/new", method: :get, class: "page-top-buttons" %></div>
+        <div><%= button_to "login", "/login", method: :get, class: "page-top-buttons"  %></div>
+    <% end %>
+  </div>
+</div>
+
+
+
+<%= button_to "login", "/login", method: :get, class: "top-buttons"%>
+
+
+        <%# <div><%= button_to "Home", '/businesses', method: :get, class: "page-top-buttons" %></div> %>
+
+
+                    <div class="bc_address"><%= business.city %>, <%= business.state_abbrev %> <%= business.zip_code %></div>
+            <div class="bc_type"><%= business.business_type %></div>

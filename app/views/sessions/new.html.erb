@@ -1,4 +1,15 @@
+  <div class="future-navbar-items">
+    <div class="greeting" style="width: 100%; background: gray; padding-bottom: 10px; padding-top: 10px; position:fixed;">
+        <div style="margin-left: 10px; margin-top: auto; margin-bottom: auto; font-size: 30px; margin-right: 40px; color: white;">
+            <span style="border: 3px solid white; border-radius: 100%; padding: 5px; background-color: rgba(0, 0, 0, 0.5);">DF</span> 
+            St. Pete</div>
+        <div style="text-align: left;"><%= button_to "Home", '/businesses', method: :get, class: "top-buttons", style: "margin:0px; padding-top: 2px; padding-bottom: 2px;" %></div>
+                <div><%= button_to "Register", "/users/new", method: :get, class: "top-buttons", style: "margin:0px; padding-top: 2px; padding-bottom: 2px;" %></div>
+  
+  </div>
+</div>
 
+<div class="login-container" style="margin-top: 100px;">
 <h1>User Login</h1>
 
 <% if flash[:messages] %>
@@ -12,4 +23,4 @@
     <%= password_field_tag :password %>
     <%= submit_tag "Login" %>
 <% end %>
-
+</div>

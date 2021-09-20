@@ -1,5 +1,18 @@
 
-<h1 class="pp-name"><%= current_user.firstname %>'s Profile Page</h1>
+  <div class="future-navbar-items">
+    <div class="greeting" style="width: 100%; background: gray; padding-bottom: 10px; padding-top: 10px; position:fixed;">
+        <div style="margin-left: 10px; margin-top: auto; margin-bottom: auto; font-size: 30px; margin-right: 40px; color: white;">
+            <span style="border: 3px solid white; border-radius: 100%; padding: 5px; background-color: rgba(0, 0, 0, 0.5);">DF</span> 
+            St. Pete</div>
+        <div style="text-align: left;"><%= button_to "Home", '/businesses', method: :get, class: "top-buttons", style: "margin:0px; padding-top: 2px; padding-bottom: 2px;" %></div>
+  
+
+        <div><%= button_to "Dashboard", '/users', method: :get, class: "top-buttons", style: "margin:0px; padding-top: 2px; padding-bottom: 2px;" %></div>
+        <div><%= button_to "Logout", "/login", method: :delete, class: "top-buttons", style: "margin:0px; padding-top: 2px; padding-bottom: 2px;" %></div>
+  </div>
+</div>
+
+<h1 class="pp-name" style="margin-top: 100px"><%= current_user.firstname %>'s Profile Page</h1>
 
 <% if current_user.avatar.attached? %>
     <%= image_tag current_user.avatar, class: "profile-pic"%>

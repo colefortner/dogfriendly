@@ -2,6 +2,49 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+.header-background{
+    background-image: url(https://offloadmedia.feverup.com/secretldn.com/wp-content/uploads/2018/03/18144114/DOG-COCKTAILS-Smith-Whistle-Max-dog-cocktail-menu-launch-for-National-Pet-Month.-4-e1522169808705-scaled.jpg);
+    background-size: cover;
+    background-position: 0, -250px;
+    // background-attachment: fixed;
+    // position: fixed;
+    // width: 100%
+    color: white;
+    height: 500px;
+    // display: flex;
+
+}
+
+
+.header-buttons {
+    display: flex;
+    float: right;
+    margin-top: 75px;
+
+}
+.top-buttons {
+// margin-top: 40px;
+color: #fff;
+// background: #333;
+background-color: rgba(0, 0, 0, 0.5);
+border-radius: 4px;
+padding: 20px;
+margin-left: 4%;
+font-size: 25px;
+cursor: pointer;
+margin-top: -40px;
+transition: ease-in-out 0.1s;
+border: 1px solid #fff;
+float: right;
+
+&:hover {
+background: rgba(255, 255, 255, 0.4);
+
+    // background: #fff;
+    color: #000;
+    border: 1px solid #fff;
+}
+}
 
 .page-top {
     display: flex;
@@ -32,27 +75,27 @@
 }
 
 .business_card {
-    border: 1px solid black;
+    border: 1px solid #efefef;
     // shrinks the div to the card size which in most cases here will be the image widht
     display: inline-block;
     border-radius: 5px;
     padding: 10px;
     margin: 15px;
-    background: rgba(0, 0, 0, 0.3);
-    // float: left;
+    background: #fff;
+    text-align: center;
 }
 
 .bc_name {
     text-align: center;
     font-size: 25px;
-    font-weight: 600;
+    // font-weight: 600;
     margin-bottom: 15px;
 }
 
 .bc_img {
-    width: 300px;
-    height: 300px;
-    border-radius: 5px;
+    width: 250px;
+    height: 250px;
+    border-radius: 10%;
     margin-bottom: 15px;
 }
 
@@ -77,12 +120,15 @@
     margin-right: 8px;
     font-size: 18px;
     font-weight: bold;
-    float: left;
+    text-align: center;
+    justify-content: center;
+    // float: left;
 }
 .paws {
     margin-top: 13px;
     display: flex;
     flex-wrap: wrap;
+    text-align: center;
 }
 
 .paw {
@@ -179,9 +225,24 @@
 }
 
 
+.star-wrapper {
+    position: relative;
+    display: inline-block;
 
+    StarWrapper::before, Stars::before {
+        font-family: "FontAwesome 5 free";
+        content: "\2605 \20 \2605 \20 \2605 \20 \2605 \20 \2605";    
+    }
+}
 
-
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #ffc315;
+}
 
 
 

@@ -17,7 +17,7 @@ class BusinessUserRelationshipsController < ApplicationController
     @business_user_relationship = BusinessUserRelationship.find(params[:id])
     @business_user_relationship.destroy
 
-    redirect_to '/', :notice => "Deleted"
+    redirect_to '/users', :notice => "Deleted"
   end
   
 end

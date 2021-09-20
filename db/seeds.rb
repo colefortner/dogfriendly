@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.create(firstname: "Emma", username: "emmafortner", password: "aaaaaaaa")
-User.create(firstname: "John", username: "johnnyc", password: "aaaaaaaa")
+User.create(firstname: "emma", username: "emmafortner", password: "aaaaaaaa")
+User.create(firstname: "jenna", username: "jennafortner", password: "aaaaaaaa")
 
 Business.create(name: "Pinellas Ale Works",
                 img_url: "https://media-cdn.tripadvisor.com/media/photo-s/14/61/d7/ab/paw-brewery-tap-room.jpg",
@@ -49,6 +49,44 @@ Business.create(name: "3 Daughters Brewing",
                 zip_code: 33712, 
                 business_type: "bar",
                 address: "222 22nd St., St. Petersburg, FL, 33712")
+
+                Business.create(name: "Red Mesa Mercado",
+                    img_url: "https://redmesamercado.com/wp-content/uploads/2020/03/mercado_home.jpg",
+                    website: "redmesamercado.com",
+                    monday: "7:30 AM - 9:00 PM",
+                    tuesday: "7:30 AM - 9:00 PM",
+                    wednesday: "7:30 AM - 9:00 PM",
+                    thursday: "7:30 AM - 9:00 PM",
+                    friday: "7:30 AM - 9:00 PM",
+                    saturday: "9:00 AM - 10:00 PM",
+                    sunday: "9:00 AM - 9:00 PM",
+                    phone_number: "701-111-1111",
+                    address_number: 1100,
+                    street_name: "1st Ave N",
+                    city: "St. Petersburg",
+                    state_abbrev: "FL",
+                    zip_code: 33705,
+                    business_type: "restaurant",
+                    address: "1100 1st Ave N, St. Petersburg, FL, 33705")
+
+                    Business.create(name: "400 Beach",
+                        img_url: "https://media-cdn.tripadvisor.com/media/photo-s/03/c7/b8/26/400-beach-seafood-and.jpg",
+                        website: "400beachseafood.com",
+                        monday: "11:00 AM - 10:00 PM",
+                        tuesday: "11:00 AM - 10:00 PM",
+                        wednesday: "11:00 AM - 10:00 PM",
+                        thursday: "11:00 AM - 10:00 PM",
+                        friday: "11:00 AM - 11:00 PM",
+                        saturday: "11:00 AM - 11:00 PM",
+                        sunday: "10:00 AM - 10:00 PM",
+                        phone_number: "727-893-7441",
+                        address_number: 400,
+                        street_name: "Beach Drive NE",
+                        city: "St. Petersburg",
+                        state_abbrev: "FL",
+                        zip_code: 33701,
+                        business_type: "restaurant",
+                        address: "400 Beach, 400 Beach Drive NE, St. Petersburg, FL 33701")
 
 Business.create(name: "The Dog Bar",
                 img_url: "https://i2.wp.com/www.grandcentraldistrict.org/wp-content/uploads/2020/06/SP_419797_KEEL_1_ta_DOGBAR.jpg?fit=1024%2C695&ssl=1",
@@ -107,25 +145,6 @@ Business.create(name: "Swingers Patio Bar & Grill",
                 business_type: "bar",
                 address: "2501 Central Ave, St. Petersburg, FL, 33713")
 
-Business.create(name: "Red Mesa Mercado",
-                img_url: "https://redmesamercado.com/wp-content/uploads/2020/03/mercado_home.jpg",
-                website: "redmesamercado.com",
-                monday: "7:30 AM - 9:00 PM",
-                tuesday: "7:30 AM - 9:00 PM",
-                wednesday: "7:30 AM - 9:00 PM",
-                thursday: "7:30 AM - 9:00 PM",
-                friday: "7:30 AM - 9:00 PM",
-                saturday: "9:00 AM - 10:00 PM",
-                sunday: "9:00 AM - 9:00 PM",
-                phone_number: "701-111-1111",
-                address_number: 1100,
-                street_name: "1st Ave N",
-                city: "St. Petersburg",
-                state_abbrev: "FL",
-                zip_code: 33705,
-                business_type: "restaurant",
-                address: "1100 1st Ave N, St. Petersburg, FL, 33705")
-
 Business.create(name: "The Ale and the Witch",
                 img_url: "https://media-cdn.tripadvisor.com/media/photo-s/1b/28/c1/83/outside.jpg",
                 website: "thealeandthewitch.com",
@@ -146,7 +165,7 @@ Business.create(name: "The Ale and the Witch",
                 address: "111 2nd Ave NE, St. Petersburg, FL, 33701")
 
 Business.create(name: "Pass A Grille Dog Beach",
-                img_url: "https://z0sqrs-a.akamaihd.net/4387_visitpassagrille/Pets/Dogs-Lab-behind-Paradise-Grille.jpg",
+                img_url: "https://www.passpawt.com/wp-content/uploads/2017/05/relaxing-dog-at-the-beach.jpg",
                 website: "thealeandthewitch.com",
                 monday: "Figure out what to do with n/a items",
                 tuesday: "?",
@@ -165,7 +184,7 @@ Business.create(name: "Pass A Grille Dog Beach",
                 address: "Pass A Grille Dog Beach")
 
 Business.create(name: "Fort De Soto Dog Park/Beach",
-                img_url: "https://z0sqrs-a.akamaihd.net/4387_visitpassagrille/Pets/Dogs-Lab-behind-Paradise-Grille.jpg",
+                img_url: "https://d.newsweek.com/en/full/1438738/dog-beach.jpg",
                 website: "thealeandthewitch.com",
                 monday: "7:00 AM - 8:00 PM",
                 tuesday: "7:00 AM - 8:00 PM",
@@ -184,7 +203,7 @@ Business.create(name: "Fort De Soto Dog Park/Beach",
                 address: "Fort De Soto Dog Park Beach, St. Petersburg, FL, 33715, 27.61669844015183, -82.72818086245172")
 
 Business.create(name: "Kenwood Dog Park",
-                img_url: "https://downtownstpete.com/wp-content/uploads/2016/09/FullSizeRender-668x445.jpg",
+                img_url: "https://windycitypaws.com/wp-content/uploads/2016/07/AdobeStock_108887617Mini.jpeg",
                 website: "www.stpeteparksrec.org/dogparks",
                 monday: "30 min before sunrise - 30 min after sunset",
                 tuesday: "30 min before sunrise - 30 min after sunset",
@@ -220,26 +239,6 @@ Business.create(name: "North Shore Dog Park",
                 zip_code: 33701,
                 business_type: "dog park",
                 address: "North Shore Dog Park, 901 North Shore Dr. NE, St. Petersburg, FL 33701")
-
-Business.create(name: "400 Beach",
-                img_url: "https://media-cdn.tripadvisor.com/media/photo-s/03/c7/b8/26/400-beach-seafood-and.jpg",
-                website: "400beachseafood.com",
-                monday: "11:00 AM - 10:00 PM",
-                tuesday: "11:00 AM - 10:00 PM",
-                wednesday: "11:00 AM - 10:00 PM",
-                thursday: "11:00 AM - 10:00 PM",
-                friday: "11:00 AM - 11:00 PM",
-                saturday: "11:00 AM - 11:00 PM",
-                sunday: "10:00 AM - 10:00 PM",
-                phone_number: "727-893-7441",
-                address_number: 400,
-                street_name: "Beach Drive NE",
-                city: "St. Petersburg",
-                state_abbrev: "FL",
-                zip_code: 33701,
-                business_type: "restaurant",
-                address: "400 Beach, 400 Beach Drive NE, St. Petersburg, FL 33701")
-
 
 Business.create(name: "Pour Taproom",
                 img_url: "https://myperfectitinerary.com/wp-content/uploads/2018/10/IMG_7394-576x1024.jpg",
@@ -279,7 +278,7 @@ Business.create(name: "The Chattaway",
                 business_type: "restaurant",
                 address: "The Chattaway, 358 22nd Ave. S, St. Petersburg, FL 33705")
 
-Business.create(name: "St. Petersburg Saturday Morning Market",
+Business.create(name: "St. Pete Sat Morning Market",
                 img_url: "http://downtownstpete.com/wp-content/uploads/2016/02/SaturdayMorningMarket_DTSP-1.jpg",
                 website: "saturdaymorningmarket.com",
                 monday: "Closed",
@@ -303,13 +302,36 @@ user = User.first
 user.business_comments.create(body: "Cozy bar with good beer and dogs, what more can you ask for?", business_id: 1)
 user.business_comments.create(body: "Great selection of beer and logs of room for the dogs to play!", business_id: 3)
 user.business_comments.create(body: "Best place to watch sports with your dog, most tvs in St. Pete?", business_id: 4)
-user.business_comments.create(body: "Weird ass place", business_id: 5)
-user.business_comments.create(body: "Love this place, great selection, lots of outdoor space and live music", business_id: 7)
+user.business_comments.create(body: "Weird place", business_id: 5)
+user.business_comments.create(body: "Love this place, great selection, lots of outdoor space and live music", business_id: 2)
+user.business_comments.create(body: "Cozy bar with good beer and dogs, what more can you ask for?", business_id: 6)
+user.business_comments.create(body: "Great selection of beer and logs of room for the dogs to play!", business_id: 7)
+user.business_comments.create(body: "Best place to watch sports with your dog, most tvs in St. Pete?", business_id: 8)
+user.business_comments.create(body: "Weird place", business_id: 9)
+user.business_comments.create(body: "Love this place, great selection, lots of outdoor space and live music", business_id: 10)
+user.business_comments.create(body: "Cozy bar with good beer and dogs, what more can you ask for?", business_id: 11)
+user.business_comments.create(body: "Great selection of beer and logs of room for the dogs to play!", business_id: 12)
+user.business_comments.create(body: "Best place to watch sports with your dog, most tvs in St. Pete?", business_id: 13)
+user.business_comments.create(body: "Weird place", business_id: 14)
+user.business_comments.create(body: "Love this place, great selection, lots of outdoor space and live music", business_id: 15)
 
 
 user.ratings.create(rating: 5, business_id: 1)
-user.ratings.create(rating: 2, business_id: 2)
-user.ratings.create(rating: 3, business_id: 4)
+user.ratings.create(rating: 5, business_id: 3)
+user.ratings.create(rating: 4, business_id: 2)
+user.ratings.create(rating: 5, business_id: 4)
+user.ratings.create(rating: 3, business_id: 5)
+user.ratings.create(rating: 2, business_id: 6)
+user.ratings.create(rating: 3, business_id: 7)
+user.ratings.create(rating: 1, business_id: 8)
+user.ratings.create(rating: 4, business_id: 9)
+user.ratings.create(rating: 3, business_id: 10)
+user.ratings.create(rating: 1, business_id: 11)
+user.ratings.create(rating: 3, business_id: 12)
+user.ratings.create(rating: 4, business_id: 13)
+user.ratings.create(rating: 5, business_id: 14)
+user.ratings.create(rating: 4, business_id: 15)
+
 
 user.business_user_relationships.create(relationship: true, business_id: 1)
 user.business_user_relationships.create(relationship: true, business_id: 3)
@@ -320,9 +342,19 @@ user.user_user_relationships.create(relationship: true, friend_user_id: 2)
 user2 = User.where(id: 2).first
 user2.business_comments.create(body: "Nice low key bar with great beer. ", business_id: 1)
 user2.business_comments.create(body: "One of the best places in St. Pete to have a beer with dog friends", business_id: 2)
-user2.business_comments.create(body: "Great place to grab lunch with your pooch, great burritos", business_id: 6)
-user2.business_comments.create(body: "I agree, it's a weird ass place.  What is up with the swings", business_id: 5)
-user2.business_comments.create(body: "Go on a live music night!", business_id: 7)
+user2.business_comments.create(body: "Great place to grab lunch with your pooch, great burritos", business_id: 3)
+user2.business_comments.create(body: "I agree, it's a weird place.  What is up with the swings", business_id: 5)
+user2.business_comments.create(body: "Go on a live music night!", business_id: 4)
+user2.business_comments.create(body: "Nice low key bar with great beer. ", business_id: 6)
+user2.business_comments.create(body: "One of the best places in St. Pete to have a beer with dog friends", business_id: 7)
+user2.business_comments.create(body: "Great place to grab lunch with your pooch, great burritos", business_id: 8)
+user2.business_comments.create(body: "I agree, it's a weird place.  What is up with the swings", business_id: 9)
+user2.business_comments.create(body: "Go on a live music night!", business_id: 10)
+user2.business_comments.create(body: "Nice low key bar with great beer. ", business_id: 11)
+user2.business_comments.create(body: "One of the best places in St. Pete to have a beer with dog friends", business_id: 12)
+user2.business_comments.create(body: "Great place to grab lunch with your pooch, great burritos", business_id: 13)
+user2.business_comments.create(body: "I agree, it's a weird place.  What is up with the swings", business_id: 14)
+user2.business_comments.create(body: "Go on a live music night!", business_id: 15)
 
 user2.ratings.create(rating: 4, business_id: 2)
 
@@ -330,4 +362,17 @@ user2.business_user_relationships.create(relationship: true, business_id: 1)
 user2.business_user_relationships.create(relationship: true, business_id: 3)
 user2.business_user_relationships.create(relationship: true, business_id: 7)
 
-
+user2.ratings.create(rating: 5, business_id: 1)
+user2.ratings.create(rating: 5, business_id: 2)
+user2.ratings.create(rating: 4, business_id: 4)
+user2.ratings.create(rating: 4, business_id: 5)
+user2.ratings.create(rating: 3, business_id: 6)
+user2.ratings.create(rating: 4, business_id: 7)
+user2.ratings.create(rating: 3, business_id: 8)
+user2.ratings.create(rating: 2, business_id: 9)
+user2.ratings.create(rating: 3, business_id: 10)
+user2.ratings.create(rating: 2, business_id: 11)
+user2.ratings.create(rating: 4, business_id: 12)
+user2.ratings.create(rating: 3, business_id: 13)
+user2.ratings.create(rating: 2, business_id: 14)
+user2.ratings.create(rating: 1, business_id: 15)

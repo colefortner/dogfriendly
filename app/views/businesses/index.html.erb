@@ -1,27 +1,54 @@
+<div class="header-background">
 
-<h1>Businesses Browsing Page</h1> 
 
-<div class="business-card-container">
+<div class="header-buttons" style="text-align: right; margin-top: 100px; margin-right: 100px">
+    
+    <% if logged_in? %>
+        <div style="float-right;"><%= button_to "Dashboard", '/users', method: :get, class: "top-buttons" %></div>
+        <div style="float-right"><%= button_to "logout", "/login", method: :delete, class: "top-buttons" %></div>
+    
+    <% else %>
+        <div><%= button_to "register", "/users/new", method: :get, class: "top-buttons" %></div>
+        <div><%= button_to "login", "/login", method: :get, class: "top-buttons"  %></div>
+    <% end %>
+    </div>
+        <div style="font-size:70px; padding-top: 150px; padding-left: 100px; font-weight: bold">Dog Friendly</div>
+        <div style="font-size:30px; padding-top: 50px; padding-left: 100px;">Your Guide to Dog Friendly Businesses in St. Pete</div>
+
+    </div>
+
+
+<div class="business-card-container" style="max-width: 1700px; margin-left: auto; margin-right: auto; margin-top: 40px">
     <% @businesses.each do |business | %>
         <div class="business_card">
-            <div class="bc_name"><%= link_to business.name, business %></div>
-            <img class="bc_img" src="<%= business.img_url %>"/>
-            <div class="bc_phone"><%= business.phone_number %></div>
-            <div class="bc_address"><%= business.address_number %> <%= business.street_name %></div>
-            <div class="bc_address"><%= business.city %>, <%= business.state_abbrev %> <%= business.zip_code %></div>
-            <div class="bc_type"><%= business.business_type %></div>
             
-            <p class="rating">Rating:</p> 
-
-            <% if business.average > 0 %>               
-                <div class="paws">
+            <img class="bc_img" src="<%= business.img_url %>"/>
+            <div class="bc_name" style="font-size: 20px; margin-bottom: 0px;"><%= business.name %></div>
+                        <%# <p class="rating">Rating:</p>  %>
+            <div style="display: flex; justify-content: center; margin-bottom: 8px;">
+            <% if business.average  %>               
+                <div class="paws" style="text-align: center">
                     <% business.average.times do |i| %>
-                        <img class="paw" src="<%= asset_path('yellow-paw-print-md.png') %>"/>
+                        <img class="paw" src="<%= asset_path('paw.png') %>"/>
+                        <% end %>
+                    <% (5 - business.average).times do |i| %>
+                        <img class="paw" src="<%= asset_path('graypaw.png') %>"/>
                     <% end %>
+                
                 </div>
-            <% else %>
-                <div class="no-rating-yet">Be the first to rate this business</div>
+  
             <% end %>
+            </div>
+            <div class="bc_phone" style="margin-bottom: 5px;"><%= business.phone_number %></div>
+           
+            <div class="bc_address"><%= business.address_number %> <%= business.street_name %></div>
+            <div style="display: flex; justify-content: center; margin-top: 50px;">
+            <div><%= link_to "More", business, class: "top-buttons", style: "text-decoration: none; font-size: 15px; padding: 5px;" %></div>
+            </div>
+                    <span className="star-wrapper">
+            <span className="stars" style="width: <%= business.average %> + '%' "></span>
+        </span>
+
         </div>
         </br>
     <% end %>
