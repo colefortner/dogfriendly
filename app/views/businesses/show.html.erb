@@ -24,158 +24,141 @@
         })
     }
 </script>
-  <div class="future-navbar-items">
-    <div class="greeting" style="width: 100%; background: gray; padding-bottom: 10px; padding-top: 10px; position:fixed;">
-        <div style="margin-left: 10px; margin-top: auto; margin-bottom: auto; font-size: 30px; margin-right: 40px; color: white;">
-                        <span style="border: 3px solid white; border-radius: 100%; padding: 5px; background-color: rgba(0, 0, 0, 0.5);">DF</span> 
-
-            St. Pete</div>
-        <div style="text-align: left;"><%= button_to "Home", '/businesses', method: :get, class: "top-buttons", style: "margin:0px; padding-top: 2px; padding-bottom: 2px;" %></div>
-        <% if logged_in? %>
-            <div><%= button_to "Profile", "/users/#{current_user.id}", method: :get, class: "top-buttons", style: "margin:0px; padding-top: 2px; padding-bottom: 2px;"%></div>
-
-            <div><%= button_to "Dashboard", '/users', method: :get, class: "top-buttons", style: "margin:0px; padding-top: 2px; padding-bottom: 2px;" %></div>
-        <div>
-    <% if logged_in?  %>
-        <% if @business.business_user_relationships.where(user_id: current_user.id, business_id: @business.id).first == nil %>
+<div class="future-navbar-items">
+  <div class="greeting" style="width: 100%; background: gray; padding-bottom: 10px; padding-top: 10px; position:fixed;">
+    <div style="margin-left: 10px; margin-top: auto; margin-bottom: auto; font-size: 30px; margin-right: 40px; color: white;">
+      <span style="border: 3px solid white; border-radius: 100%; padding: 5px; background-color: rgba(0, 0, 0, 0.5);">DF</span> 
+        St. Pete
+    </div>
+    <div style="text-align: left;"><%= button_to "Home", '/businesses', method: :get, class: "top-buttons", style: "margin:0px; padding-top: 2px; padding-bottom: 2px;" %></div>
+      <% if logged_in? %>
+        <div><%= button_to "Profile", "/users/#{current_user.id}", method: :get, class: "top-buttons", style: "margin:0px; padding-top: 2px; padding-bottom: 2px;"%></div>
+        <div><%= button_to "Dashboard", '/users', method: :get, class: "top-buttons", style: "margin:0px; padding-top: 2px; padding-bottom: 2px;" %></div>
+      <div>
+        <% if logged_in?  %>
+          <% if @business.business_user_relationships.where(user_id: current_user.id, business_id: @business.id).first == nil %>
             <%= form_for :business_user_relationship, url:"/business_user_relationships" do |f| %>
-                <%= f.hidden_field :relationship, value: true %>
-                <%= f.hidden_field :business_id, value: @business.id %>
-                <%= f.hidden_field :user_id, value: current_user.id %>
-                <%= f.submit  "Save Business", class: "top-buttons", style: "margin:0px; padding-top: 2px; padding-bottom: 2px;" %>
+              <%= f.hidden_field :relationship, value: true %>
+              <%= f.hidden_field :business_id, value: @business.id %>
+              <%= f.hidden_field :user_id, value: current_user.id %>
+              <%= f.submit  "Save Business", class: "top-buttons", style: "margin:0px; padding-top: 2px; padding-bottom: 2px;" %>
             <%end%>
-        <%end%>
-    <% end%>
-</div>
-<div>
-    <% if logged_in?  %>
-        <% if @business.user_check_ins.where(user_id: current_user.id, business_id: @business.id).first == nil %>
+          <%end%>
+        <% end%>
+      </div>
+      <div>
+        <% if logged_in?  %>
+          <% if @business.user_check_ins.where(user_id: current_user.id, business_id: @business.id).first == nil %>
             <%= form_for :user_check_in, url:"/user_check_ins" do |f| %>
-                <%= f.hidden_field :checked_in, value: true %>
-                <%= f.hidden_field :business_id, value: @business.id %>
-                <%= f.hidden_field :user_id, value: current_user.id %>
-                <%= f.submit "Check In", class: "top-buttons", style: "margin:0px; padding-top: 2px; padding-bottom: 2px;" %>
+              <%= f.hidden_field :checked_in, value: true %>
+              <%= f.hidden_field :business_id, value: @business.id %>
+              <%= f.hidden_field :user_id, value: current_user.id %>
+              <%= f.submit "Check In", class: "top-buttons", style: "margin:0px; padding-top: 2px; padding-bottom: 2px;" %>
             <%end%>
-        <%end%>
-    <% end%>
-</div>
-        <div><%= button_to "Logout", "/login", method: :delete, class: "top-buttons", style: "margin:0px; padding-top: 2px; padding-bottom: 2px;" %></div>
-  </div>
-        <% else %>
-
-    <% end %>
-  
+          <%end%>
+        <% end%>
+      </div>
+      <div><%= button_to "Logout", "/login", method: :delete, class: "top-buttons", style: "margin:0px; padding-top: 2px; padding-bottom: 2px;" %></div>
+    </div>
+  <% else %>
+ <% end %>  
 </div >
 
 <div>
-<div class="all-body" style="margin-left: 20em;">
-<div style="margin-top: 100px; font-size: 50px;"><%= @business.name %></div>
-<div class="show-business-info">
-    <img class="show-img" style="border-radius: 5px;" src="<%= @business.img_url %>" />
- 
-    <div class="stuff">
-           <div style="display: flex; justify-content: left; margin-bottom: 8px;">
-             
-            <% if @business.average  %>               
-                <div class="paws" style="text-align: center">
-                    <% @business.average.times do |i| %>
-                        <img class="paw" src="<%= asset_path('paw.png') %>"/>
-                        <% end %>
-                    <% (5 - @business.average).times do |i| %>
-                        <img class="paw" src="<%= asset_path('graypaw.png') %>"/>
-                    <% end %>
-                
-                </div>
-  
-            <% end %>
+  <div class="all-body" style="margin-left: 20em;">
+    <div style="margin-top: 100px; font-size: 50px;"><%= @business.name %></div>
+    <div class="show-business-info">
+      <img class="show-img" style="border-radius: 5px;" src="<%= @business.img_url %>" />
+      <div class="stuff">
+        <div style="display: flex; justify-content: left; margin-bottom: 8px;">
+          <% if @business.average  %>               
+            <div class="paws" style="text-align: center">
+              <% @business.average.times do |i| %>
+                <img class="paw" src="<%= asset_path('paw.png') %>"/>
+              <% end %>
+              <% (5 - @business.average).times do |i| %>
+                <img class="paw" src="<%= asset_path('graypaw.png') %>"/>
+              <% end %>  
             </div>
-    <div class="show" style="font-size: 23px; padding-top: 5px; padding-bottom: 5px; color: black;">
-        <div class="show-web-address"><%= link_to "#{@business.website}", "https://www.#{@business.website}", :target => "blank", style: "text-decoration: none; color: gray; margin-bottom: 8px;" %></div>
-        <div class="show-phone"><%= @business.phone_number %></div>
-        <div class="show-address"><%= @business.address_number %> <%= @business.street_name %></div>
-        <div class="show-address"><%= @business.city %>, <%= @business.state_abbrev %> <%= @business.zip_code %></div>
-  
-    </div>
-
-    
-
-    <div class="hours-title" style="font-size: 20px; font-weight: bold; margin-top: 10px;">Hours</div>
+          <% end %>
+        </div>
+        <div class="show" style="font-size: 23px; padding-top: 5px; padding-bottom: 5px; color: black;">
+          <div class="show-web-address"><%= link_to "#{@business.website}", "https://www.#{@business.website}", :target => "blank", style: "text-decoration: none; color: gray; margin-bottom: 8px;" %></div>
+          <div class="show-phone"><%= @business.phone_number %></div>
+          <div class="show-address"><%= @business.address_number %> <%= @business.street_name %></div>
+          <div class="show-address"><%= @business.city %>, <%= @business.state_abbrev %> <%= @business.zip_code %></div>
+        </div>
+        <div class="hours-title" style="font-size: 20px; font-weight: bold; margin-top: 10px;">Hours</div>
         <div class="show-hours" style="margin-left: 40px;">
-            <div class="hours" style="margin-bottom: 10px;">
-                    <table>
-                        <tr>
-                        <td>Mon</td>
-                        <td><%= @business.monday %></td>
-                        </tr>
-                        <tr>
-                        <td>Tue</td>
-                        <td><%= @business.tuesday %></td>
-                        </tr>
-                        <tr>
-                        <td>Wed</td>
-                        <td><%= @business.wednesday %></td>
-                        </tr>
-                        <tr>
-                        <td>Thu</td>
-                        <td><%= @business.thursday %></td>
-                        </tr>
-                        <tr>
-                        <td>Fri</td>
-                        <td><%= @business.friday %></td>
-                        </tr>
-                        <tr>
-                        <td>Sat</td>
-                       <td><%= @business.saturday %></td>
-                        </tr>
-                        <tr>
-                        <td>Sun</td>
-                        <td><%= @business.sunday %></td>
-                        </tr>
-                    </table>
-            </div>
+          <div class="hours" style="margin-bottom: 10px;">
+            <table>
+              <tr>
+                <td>Mon</td>
+                <td><%= @business.monday %></td>
+              </tr>
+              <tr>
+                <td>Tue</td>
+                <td><%= @business.tuesday %></td>
+              </tr>
+              <tr>
+                <td>Wed</td>
+                <td><%= @business.wednesday %></td>
+              </tr>
+              <tr>
+                <td>Thu</td>
+                <td><%= @business.thursday %></td>
+              </tr>
+              <tr>
+                <td>Fri</td>
+                <td><%= @business.friday %></td>
+              </tr>
+              <tr>
+                <td>Sat</td>
+                <td><%= @business.saturday %></td>
+              </tr>
+              <tr>
+                <td>Sun</td>
+                <td><%= @business.sunday %></td>
+              </tr>
+            </table>
+          </div>
         </div>
         <div id="map"></div>
+      </div>
     </div>
-</div>
-<br>
-<h2>Reviews</h2>
-
-<% @business_comments.each do |comment | %>
-    <div class="comments"><%= comment.body %> - 
+    <br>
+    <h2>Reviews</h2>
+    <% @business_comments.each do |comment | %>
+      <div class="comments"><%= comment.body %> - 
         <%= comment.user.firstname %>
-        <% if @ratings.where(business_id: @business.id, user_id: comment.user.id).first %>
+          <% if @ratings.where(business_id: @business.id, user_id: comment.user.id).first %>
             <% @ratings.where(business_id: @business.id, user_id: comment.user.id).first.rating.times do |i| %>
-                <img class="comment-paws" src="<%= asset_path('paw.png') %>"/>
+              <img class="comment-paws" src="<%= asset_path('paw.png') %>"/>
             <% end %>
-        <% end %>   
-        <% if logged_in? && (comment.user_id == current_user.id) %>
+          <% end %>   
+          <% if logged_in? && (comment.user_id == current_user.id) %>
             <%= link_to "edit", edit_business_comment_path(comment.id) %>     
-        <% end %>
-    </div>
-<% end %>
-<br>
-<div>
-    <% if logged_in?  %>
-                <% if flash[:messages] %>
-                <h2 class="register-flash"><%= flash[:messages] %></h2>
-            <% end %>
-        <% if @business_comments.where(user_id: current_user.id, business_id: @business.id).first == nil %>
-
-            <%= form_for :business_comment, url:"/business_comments" do |f| %>
-                <%= f.text_field :body, placeholder: "comment", class: "comment-field" %>
-                <%= f.hidden_field :user_id, value: current_user.id %>
-                <%= f.hidden_field :business_id, value: @business.id %>
-                <%= f.submit "Add Comment", class: "page-top-buttons" %>
-            <%end%>
-        <%end%>
+          <% end %>
+      </div>
     <% end %>
-</div>
-<br>
-
-<br>
-
-</div>
-
-
+    <br>
+    <div>
+      <% if logged_in?  %>
+        <% if flash[:messages] %>
+          <h2 class="register-flash"><%= flash[:messages] %></h2>
+        <% end %>
+        <% if @business_comments.where(user_id: current_user.id, business_id: @business.id).first == nil %>
+          <%= form_for :business_comment, url:"/business_comments" do |f| %>
+            <%= f.text_field :body, placeholder: "comment", class: "comment-field" %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :business_id, value: @business.id %>
+            <%= f.submit "Add Comment", class: "page-top-buttons" %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+    <br>
+    <br>
+  </div>
 </div>
 
