@@ -13,6 +13,10 @@ Also demonstrates friend connections and the the check in feature where you can 
 
 ![Screen Shot 2021-09-21 at 9 39 21 PM](https://user-images.githubusercontent.com/20844376/134269914-fe3077ff-b90f-4901-b5aa-3c087694679c.png)
 
+## User Profile Page
+This was another UI casualty of time.  Currently the user can upload a picture for their avatar, and edit their bio.
+![Screen Shot 2021-09-21 at 9 43 27 PM](https://user-images.githubusercontent.com/20844376/134270257-71a8a3a4-b5f1-4dad-a037-affa3af93e3f.png)
+
 
 
 This README would normally document whatever steps are necessary to get the
