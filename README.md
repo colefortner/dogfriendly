@@ -1,6 +1,6 @@
 # README
 
-### Dogfriendly
+# Dogfriendly
 ## Dogfriendly is my capstone personal project for All Aboard Ruby on Rails Bootcamp (March 2021 - April 2021 cohort).
 
 When I spent some time in St. Petersburg, Florida, one of the most enjoyable things about the city was the dog friendly bars, restaurants and beaches.  It had a small town feel and community where dog owners seemed to know each other and meet up randomly.  I thought it would be cool to have an app where users could rate places for their experiences as dog owners taking their dogs out and about.  I also added a social media aspect where an account ownder can "friend" people they know on the app.  This feature allows account owners to check into businesses if they want their friends to know they are out, and open to socializing with their dogs.  Coming from a city that was not very pet friendly, I thought this might also help foster community in cities where pet friendly establishments are more sparse and often go unknown.  Note: I did not know a website already existed with the name when I created this.  While the name is the same, the purposes are very different.  My app is geared towards community, not travel.
