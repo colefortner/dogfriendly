@@ -9,7 +9,7 @@
 ![Screen Shot 2021-09-21 at 9 21 37 PM](https://user-images.githubusercontent.com/20844376/134268640-d32f787a-6f26-473c-aa77-95d87639e04a.png)
 
 ## User Dashboard with their saved businesses
-### Also demonstrates friend connections and the the check in feature where you can see where your friends and their dogs currently are.  I was unable to complete the UI before the due date.
+Also demonstrates friend connections and the the check in feature where you can see where your friends and their dogs currently are.  I was unable to complete the UI before the due date.
 
 ![Screen Shot 2021-09-21 at 9 39 21 PM](https://user-images.githubusercontent.com/20844376/134269914-fe3077ff-b90f-4901-b5aa-3c087694679c.png)
 
